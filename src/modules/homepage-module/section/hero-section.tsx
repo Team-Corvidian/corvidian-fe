@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export const HeroSection = () => {
   return (
@@ -27,6 +28,17 @@ export const HeroSection = () => {
                   Konsultasi Gratis
                 </Link>
               </Button>
+            </div>
+
+            <div className="relative w-full">
+                <Image
+                    src="/hero/hero.png"
+                    alt="Hero Image"
+                    width={1277}
+                    height={370}
+                    quality={100}
+                    className="w-full h-auto rounded-br-[20px] rounded-bl-[20px] rounded-tr-[20px]"
+                />
             </div>
           </div>
         </div>
