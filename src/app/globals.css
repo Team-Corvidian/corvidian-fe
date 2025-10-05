@@ -130,3 +130,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .gradient-bg {
+    background: linear-gradient(
+      96deg,
+      var(--corvidian-4, #02C2B3) -18.1%,
+      var(--corvidian-1, #1D1F26) 21.45%,
+      var(--corvidian-1, #1D1F26) 59.91%,
+      var(--corvidian-2, #1578CB) 113.68%
+    );
+  }
+}
