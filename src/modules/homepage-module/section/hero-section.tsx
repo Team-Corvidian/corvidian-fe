@@ -59,7 +59,7 @@ export const HeroSection = () => {
                   width={800}
                   height={430}
                   quality={100}
-                  className="absolute left-0 -top-28 object-contain"
+                  className="absolute left-0 -top-27 object-contain rounded-b-2xl"
                 />
                 <Image
                   src="/hero/monitor.png"
