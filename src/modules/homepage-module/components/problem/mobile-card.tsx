@@ -78,7 +78,7 @@ export const MobileCard = () => {
 
           <div className="px-4 py-4 flex flex-col justify-between flex-grow">
             <div>
-              <h3 className="text-white font-extrabold text-[15px] mb-2 leading-snug">
+              <h3 className="text-white font-extrabold text-[15px] mb-2 leading-snug max-[350px]:text-[13px]">
                 Tidak punya <br /> waktu & budget buat bangun sistem dari nol?
               </h3>
               <p className="text-white font-normal text-[10px] mb-3 leading-snug">
