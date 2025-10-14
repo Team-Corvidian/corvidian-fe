@@ -1,13 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
-"use client";
-
-import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { WawasanDropdown } from "./dropdowns/wawasan-dropdown/wawasan-dropdown";
+import { ProdukLayanan } from "./dropdowns/ProdukLayanan";
+
+type ActiveDropdown = "produk" | "wawasan" | null;
 
 export const NavbarDesktop = () => {
+  const [activeDropdown, setActiveDropdown] = useState<ActiveDropdown>(null);
+
+  const handleDropdownToggle = (dropdown: ActiveDropdown) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
+  const dropdownConfigs = {
+    produk: { width: 800, content: <ProdukLayanan/> },
+    wawasan: { width: 760, content: <WawasanDropdown /> },
+  };
+
+  const currentConfig = activeDropdown ? dropdownConfigs[activeDropdown] : null;
+
   return (
     <>
       <AnimatePresence>
