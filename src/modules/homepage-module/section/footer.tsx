@@ -24,7 +24,7 @@ const Footer = () => {
   const blueZ = isLarge ? 30 : (isMedium ? 25 : 10)
   const darkZ = isLarge ? 20 : (isMedium ? 15 : 10)
   const grayZ = isLarge ? 10 : (isMedium ? 5 : 10)
-  const contentZ = isLarge || isMedium ? 50 : 20
+  const contentZ = isLarge || isMedium ? 35 : 20
 
   return (
     <footer className="relative overflow-hidden w-full">
