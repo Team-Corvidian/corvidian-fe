@@ -1,14 +1,6 @@
 import { WawasanHero } from "../components/wawasan-hero";
 import { ArtikelTerkait } from "../components/artikel-terkait";
-
-interface Article {
-  slug: string;
-  cover_image: string;
-  title: string;
-  author: string;
-  published_at: string;
-  content: string;
-}
+import { Article } from "../interface";
 
 export const WawasanSection = ({ article }: { article: Article }) => {
   return (
