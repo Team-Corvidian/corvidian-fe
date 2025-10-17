@@ -4,14 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
-
-interface Article {
-  id: number;
-  slug: string;
-  title: string;
-  cover_image: string;
-  content: string;
-}
+import { Article } from "@/modules/wawasan-module/interface";
 
 export const ArtikelKami = () => {
   const [articles, setArticles] = useState<Article[]>([]);
