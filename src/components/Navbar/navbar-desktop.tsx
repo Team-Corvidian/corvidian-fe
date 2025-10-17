@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { WawasanDropdown } from "./dropdowns/wawasan-dropdown/wawasan-dropdown";
-
+import { ProdukDropdown } from "./dropdowns/produk-dropdown/produk-dropdown";
 type ActiveDropdown = "produk" | "wawasan" | null;
 
 export const NavbarDesktop = () => {
@@ -16,7 +16,7 @@ export const NavbarDesktop = () => {
   };
 
   const dropdownConfigs = {
-    produk: { width: 800, content: null },
+    produk: { width: 1000, content: <ProdukDropdown /> },
     wawasan: { width: 760, content: <WawasanDropdown /> },
   };
 
@@ -135,7 +135,7 @@ export const NavbarDesktop = () => {
                     duration: 0.35,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
-                  className="h-[420px] rounded-2xl bg-[#1D1F26]/80 mb-3"
+                  className="h-fit rounded-2xl bg-[#1D1F26]/80 mb-3"
                 >
                   {currentConfig?.content}
                 </motion.div>

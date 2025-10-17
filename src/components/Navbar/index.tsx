@@ -2,7 +2,9 @@ import React from "react";
 import { NavbarDesktop } from "./navbar-desktop";
 import { NavbarMobile } from "./navbar-mobile";
 
-export const Navbar = () => {
+
+// Gunakan export default untuk mencegah masalah import
+export default function Navbar() {
   return (
     <div>
       <div className="hidden lg:block">
@@ -13,4 +15,7 @@ export const Navbar = () => {
       </div>
     </div>
   );
-};
+}
+
+// Tambahkan export named juga untuk backward compatibility
+export { Navbar };
