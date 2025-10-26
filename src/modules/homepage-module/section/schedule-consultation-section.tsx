@@ -47,10 +47,23 @@ const ConsultationSchedule = () => {
   };
 
   return (
-    <section id="konsultasi" className='relative w-full py-20'>
+    <section id="konsultasi" className='relative w-full overflow-hidden py-5'>
+      <Image 
+                src="/schedule/Vector.png"
+                alt="Background shape"
+                fill
+                style={{ 
+                objectFit: 'fill',
+                objectPosition: 'right bottom',
+                top: '30px',
+                height: '100%',
+                left: '500px'
+                }}
+                priority
+            />
       <div className='max-w-[1388px] mx-auto relative flex flex-col md:flex-row px-4 md:px-0'>
         {/* Form Section - 500px width */}
-        <div className='md:w-[500px] w-full md:ml-[120px] mb-16 md:mb-0'>
+        <div className='md:w-[500px] w-full md:ml-[50px] mb-16 md:mb-0'>
           {/* Section Title */}
           <div className='mb-[20px]'>
             <h2 className='font-extrabold text-[33px] leading-[100%] text-[#1D1F26] mb-[10px]'>
@@ -158,20 +171,11 @@ const ConsultationSchedule = () => {
         </div>
 
         {/* Testimonial Section with Vector.png Background */}
-        <div className='md:ml-auto w-full md:w-[738px] overflow-visible relative'>
+        <div className='md:ml-auto w-full md:w-[738px] overflow-hidden relative'>
         {/* Vector.png Background */}
         <div className='w-full h-auto relative'>
-            <div className='absolute inset-0 w-full h-full z-0'>
-            <Image 
-                src="/schedule/Vector.png"
-                alt="Background shape"
-                fill
-                style={{ 
-                objectFit: 'fill',
-                objectPosition: 'right top'
-                }}
-                priority
-            />
+            <div className='absolute inset-0 w-cover h-full z-0'>
+            
             </div>
             
             {/* Content container that determines the height */}
@@ -214,7 +218,7 @@ const ConsultationSchedule = () => {
                     />
                 ))}
                 {/* Additional inactive dots for visual effect */}
-                {Array.from({ length: 7 }, (_, index) => (
+                {Array.from({ length: 0 }, (_, index) => (
                     <div
                     key={`extra-${index}`}
                     className='w-[10px] h-[10px] rounded-full bg-[#C5CED5]'

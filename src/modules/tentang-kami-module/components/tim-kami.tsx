@@ -56,12 +56,12 @@ const TimKami = () => {
                 }}
               >
                 {/* Image */}
-                <div className="w-full h-full relative">
+                <div className="w-full h-full relative ">
                   <Image 
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-contain"
+                    className="object-contain pt-[60px]"
                   />
                 </div>
                 {/* Name Tag */}

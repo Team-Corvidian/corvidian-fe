@@ -20,17 +20,17 @@ export const WawasanCard = () => {
           Jelajahi hasil nyata dari solusi digital yang kami hadirkan.
         </p>
       </div>
-    <div className="absolute bottom-0 left-1/2 translate-x-2 flex items-end">
-      <div>
-        <Image src="/navbar/hp.png" alt="hp" width={80} height={86} />
+      <div className="absolute bottom-0 left-1/2 translate-x-2 flex items-end">
+        <div>
+          <Image src="/navbar/hp.png" alt="hp" width={80} height={86} />
+        </div>
+        <div className="-translate-x-3">
+          <Image src="/navbar/lms.png" alt="laptop" width={160} height={114} />
+        </div>
+        <div className="-translate-x-6">
+          <Image src="/navbar/muc.png" alt="tablet" width={200} height={100} />
+        </div>
       </div>
-      <div className="-translate-x-3">
-        <Image src="/navbar/lms.png" alt="laptop" width={160} height={114} />
-      </div>
-      <div className="-translate-x-6">
-        <Image src="/navbar/muc.png" alt="tablet" width={200} height={100} />
-      </div>
-    </div>
     </div>
   );
 };

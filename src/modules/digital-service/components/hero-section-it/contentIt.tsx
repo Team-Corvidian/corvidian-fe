@@ -31,7 +31,7 @@ const ContentWeb = () => {
         {/* Title Section */}
         <div className="mt-[80px]">
           <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-bold">
-            Rincian Solusi Berbasis IT Infrastructure
+            Rincian Solusi Berbasis Digital Software Solutions
           </p>
           <p className="text-sm lg:text-l text-corvidian-1 leading-relaxed max-w-2xl">
             Berbagai jenis bisnis sudah memberikan testimoni, sekarang giliran kamu untuk menentukan!
@@ -68,11 +68,10 @@ const ContentWeb = () => {
           
           {/* Expandable content for Infrastructure */}
           {infrastructureExpanded && (
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="flex flex-col mt-2">
               {/* Details section */}
               <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center">
-                <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
-                <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
+                <p className="ml-[24px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
                   Rincian layanan 
                 </p>
                 <div className="mr-[30px] cursor-pointer" onClick={() => setInfrastructureDetailsExpanded(!infrastructureDetailsExpanded)}>
@@ -114,15 +113,14 @@ const ContentWeb = () => {
               )}
               
               {/* FAQ section */}
-              <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center">
-                <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
-                <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
+              <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center mt-2">
+                <p className="ml-[24px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
                   Pertanyaan yang sering ditanyakan (FAQ)
                 </p>
                 <div className="mr-[30px] cursor-pointer" onClick={() => setInfrastructureFAQExpanded(!infrastructureFAQExpanded)}>
                   {infrastructureFAQExpanded ? (
                     <Image
-                      src="/heroItInfra/Up.png"
+                      src="/heroItInfra/UpDark.png"
                       alt="Up Arrow"
                       width={24}
                       height={24}
@@ -130,7 +128,7 @@ const ContentWeb = () => {
                     />
                   ) : (
                     <Image
-                      src="/heroItInfra/Down.png"
+                      src="/heroItInfra/DownDark.png"
                       alt="Down Arrow"
                       width={24}
                       height={24}
@@ -187,17 +185,16 @@ const ContentWeb = () => {
           
           {/* Expandable content for Security */}
           {securityExpanded && (
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="flex flex-col mt-2">
               {/* Details section */}
               <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center">
-                <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
-                <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
+                <p className="ml-[24px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
                   Rincian layanan 
                 </p>
                 <div className="mr-[30px] cursor-pointer" onClick={() => setSecurityDetailsExpanded(!securityDetailsExpanded)}>
                   {securityDetailsExpanded ? (
                     <Image
-                      src="/heroItInfra/Up.png"
+                      src="/heroItInfra/UpDark.png"
                       alt="Up Arrow"
                       width={24}
                       height={24}
@@ -205,7 +202,7 @@ const ContentWeb = () => {
                     />
                   ) : (
                     <Image
-                      src="/heroItInfra/Down.png"
+                      src="/heroItInfra/DownDark.png"
                       alt="Down Arrow"
                       width={24}
                       height={24}
@@ -233,15 +230,14 @@ const ContentWeb = () => {
               )}
               
               {/* FAQ section */}
-              <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center">
-                <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
-                <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
+              <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center mt-2">
+                <p className="ml-[24px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
                   Pertanyaan yang sering ditanyakan (FAQ)
                 </p>
                 <div className="mr-[30px] cursor-pointer" onClick={() => setSecurityFAQExpanded(!securityFAQExpanded)}>
                   {securityFAQExpanded ? (
                     <Image
-                      src="/heroItInfra/Up.png"
+                      src="/heroItInfra/UpDark.png"
                       alt="Up Arrow"
                       width={24}
                       height={24}
@@ -249,7 +245,7 @@ const ContentWeb = () => {
                     />
                   ) : (
                     <Image
-                      src="/heroItInfra/Down.png"
+                      src="/heroItInfra/DownDark.png"
                       alt="Down Arrow"
                       width={24}
                       height={24}
@@ -281,7 +277,7 @@ const ContentWeb = () => {
           <div className="bg-white shadow-xl w-full h-[60px] flex items-center">
             <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
             <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
-              Manajemen Data & Pemeliharaan Sistem (Data Management & (System Maintenance)  
+              Manajemen Data & Pemeliharaan Sistem (Data Management & (System Maintenance))  
             </p>
             <div className="mr-[30px] cursor-pointer" onClick={() => setOperationsExpanded(!operationsExpanded)}>
               {operationsExpanded ? (
@@ -306,17 +302,16 @@ const ContentWeb = () => {
           
           {/* Expandable content for Operations */}
           {operationsExpanded && (
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="flex flex-col mt-2">
               {/* Details section */}
               <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center">
-                <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
-                <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
+                <p className="ml-[24px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
                   Rincian layanan 
                 </p>
                 <div className="mr-[30px] cursor-pointer" onClick={() => setOperationsDetailsExpanded(!operationsDetailsExpanded)}>
                   {operationsDetailsExpanded ? (
                     <Image
-                      src="/heroItInfra/Up.png"
+                      src="/heroItInfra/UpDark.png"
                       alt="Up Arrow"
                       width={24}
                       height={24}
@@ -324,7 +319,7 @@ const ContentWeb = () => {
                     />
                   ) : (
                     <Image
-                      src="/heroItInfra/Down.png"
+                      src="/heroItInfra/DownDark.png"
                       alt="Down Arrow"
                       width={24}
                       height={24}
@@ -352,15 +347,14 @@ const ContentWeb = () => {
               )}
               
               {/* FAQ section */}
-              <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center">
-                <div className="ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
-                <p className="ml-[50px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
+              <div className="bg-[#C5CED5] shadow-xl w-[1110px] ml-[105px] h-[60px] flex items-center mt-2">
+                <p className="ml-[24px] text-sm lg:text-[18px] text-corvidian-1 font-bold my-auto flex-grow">
                   Pertanyaan yang sering ditanyakan (FAQ)
                 </p>
                 <div className="mr-[30px] cursor-pointer" onClick={() => setOperationsFAQExpanded(!operationsFAQExpanded)}>
                   {operationsFAQExpanded ? (
                     <Image
-                      src="/heroItInfra/Up.png"
+                      src="/heroItInfra/UpDark.png"
                       alt="Up Arrow"
                       width={24}
                       height={24}
@@ -368,7 +362,7 @@ const ContentWeb = () => {
                     />
                   ) : (
                     <Image
-                      src="/heroItInfra/Down.png"
+                      src="/heroItInfra/DownDark.png"
                       alt="Down Arrow"
                       width={24}
                       height={24}
