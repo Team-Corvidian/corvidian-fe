@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const GradientButton = ({ text }) => {
+const GradientButton = ({ text }: { text: string }) => {
   return (
     <button
       className="relative inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-xl
