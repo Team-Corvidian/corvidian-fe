@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button";
+import Link from 'next/link';
 
 const ProdukSolusiLayanan = () => {
     // IT Infrastructure services
@@ -64,7 +65,11 @@ const ProdukSolusiLayanan = () => {
     <div className="flex flex-row w-full justify-between">
                       {/* IT Infrastructure Services */}
                       <div className="mt-6 space-y-4 flex flex-col gap-[10px]">
-                        <Button variant="outline" size="sm" className=" text-[12px] text-black font-bold w-fit rounded-2xl">IT Infrastruktur</Button>
+                        <div className="h-[40px] w-[130px] rounded-4xl flex items-center justify-center" style={{background:"linear-gradient(to right, #02C2B3, #1D1F26, #1D1F26, #1578CB)"}}>
+                          <Button variant="outline" size="sm" className=" text-[12px] text-black font-bold w-fit rounded-2xl">
+                            <Link href='/it-infrastructure' className='pointer'>IT Infrastructure</Link>
+                          </Button>
+                        </div>
     
                         {itInfraServices.map((service, index) => (
                           <div key={index} className="flex items-start gap-3">
@@ -91,7 +96,11 @@ const ProdukSolusiLayanan = () => {
     
                       {/* Web Design & Development Services */}
                       <div className="mt-6 space-y-4 flex flex-col gap-[10px]">
-                        <Button variant="outline" size="sm" className="text-[12px] text-black font-bold w-fit rounded-2xl">Web Design & Development</Button>
+                        <div className="h-[40px] w-[200px] rounded-4xl flex items-center justify-center" style={{background:"linear-gradient(to right, #02C2B3, #1D1F26, #1D1F26, #1578CB)"}}>
+                          <Button variant="outline" size="sm" className=" text-[12px] text-black font-bold w-fit rounded-2xl">
+                            <Link href='/web-design-development' className='pointer'>Web Design & Development</Link>
+                          </Button>
+                        </div>
     
                         {webServices.map((service, index) => (
                           <div key={index} className="flex items-start gap-3">
@@ -118,7 +127,11 @@ const ProdukSolusiLayanan = () => {
     
                       {/* Digital Software Solutions Services */}
                       <div className="mt-6 space-y-4 flex flex-col gap-[10px]">
-                        <Button variant="outline" size="sm" className="text-[12px] text-black font-bold w-fit rounded-2xl">Digital Software Solutions</Button>
+                        <div className="h-[40px] w-[190px] rounded-4xl flex items-center justify-center" style={{background:"linear-gradient(to right, #02C2B3, #1D1F26, #1D1F26, #1578CB)"}}>
+                          <Button variant="outline" size="sm" className=" text-[12px] text-black font-bold w-fit rounded-2xl">
+                            <Link href='/digital-software-solution' className='pointer'>Digital Software Solutions</Link>
+                          </Button>
+                        </div>
     
                         {digitalServices.map((service, index) => (
                           <div key={index} className="flex items-start gap-3">

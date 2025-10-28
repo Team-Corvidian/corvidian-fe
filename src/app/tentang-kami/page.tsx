@@ -1,12 +1,8 @@
-import React from 'react'
-import { TentangKamiModule } from '@/modules/tentang-kami-module'
+import { TentangKamiModule } from "@/modules/tentang-kami-module";
+import React from "react";
 
-const page = () => {
+export default function Page() {
   return (
-    <div>
-      <TentangKamiModule />
-    </div>
-  )
+    <TentangKamiModule />
+  );
 }
-
-export default page

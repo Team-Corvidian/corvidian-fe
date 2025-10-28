@@ -1,5 +1,6 @@
 import { WawasanCard } from "./wawasan-card";
 import { WawasanNews } from "./wawasan-news";
+import Link from "next/link";
 
 export const WawasanDropdown = () => {
   // dummy data
@@ -40,7 +41,9 @@ export const WawasanDropdown = () => {
   return (
     <div className="flex flex-col max-h-[700px] overflow-hidden rounded-2xl">
       <div className="p-6 pb-4 flex-shrink-0">
-        <WawasanCard />
+        <Link href='/portofolio' className='pointer'>
+          <WawasanCard />
+        </Link>
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 pb-6 scrollbar-thin scrollbar-thumb-corvidian-3 scrollbar-track-transparent">

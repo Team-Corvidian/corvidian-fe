@@ -13,8 +13,8 @@ export const HomepageModule = () => {
       <HeroSection />
       <ProblemSection />
       <ProjectSection />
-      <ConsultationSection />
       <OurPromotionSection />
+      <ConsultationSection />
       <ConsultationSchedule />
       <OurClient />
       <Footer />
