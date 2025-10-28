@@ -43,12 +43,15 @@ export const NavbarDesktop = () => {
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         className="px-20 py-8 flex justify-between items-center fixed top-0 left-0 right-0 bg-[#FFFFFF1A] backdrop-blur-lg z-50"
       >
-        <Image
-          src="/navbar/navbar.png"
-          alt="Corvidian Logo"
-          width={120}
-          height={24}
-        />
+        <Link href="/">
+          <Image
+            src="/navbar/navbar.png"
+            alt="Corvidian Logo"
+            width={120}
+            height={24}
+            className="cursor-pointer"
+          />
+        </Link>
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -101,7 +104,7 @@ export const NavbarDesktop = () => {
                 activeDropdown === "wawasan" ? "text-corvidian-3" : ""
               }`}
             >
-              Wawasan              
+              Wawasan
             </button>
             <Link
               href="/tentang-kami"
