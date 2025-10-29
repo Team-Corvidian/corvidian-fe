@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const ConsultationSection = () => {
   return (
-    <section id="konsultasi" className="relative w-full h-[250px] flex justify-center my-20">
+    <section className="relative w-full h-[250px] flex justify-center my-20">
       <div className="w-[90%] max-sm:max-w-[330px] max-sm:h-[241px] max-w-[1110px] h-[179px] rounded-[20px] flex flex-col justify-center md:flex-row  md:items-center md:justify-between px-12"
            style={{
              background: 'linear-gradient(90.58deg, #02C2B3 -13.4%, #1D1F26 25.6%, #1D1F26 63.53%, #1578CB 116.56%)'
