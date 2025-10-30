@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import KataMereka from "../components/schedule-consultation/kata-mereka";
 
 const schema = z.object({
   name: z.string().min(1),
@@ -68,26 +68,6 @@ export default function ConsultationSchedule() {
       setLoading(false);
     }
   };
-
-  const testimonials = [
-    {
-      text: "Sebelum bekerja sama dengan Corvidian, banyak proses di MUC yang berjalan kurang efisien. Beberapa pekerjaan memerlukan waktu lebih lama karena sistem yang ada belum terintegrasi dengan baik. Setelah Corvidian hadir, semuanya berubah. Mereka memahami kebutuhan kami secara mendalam, merancang solusi yang tepat, dan memastikan setiap detail berjalan sesuai rencana. Hasilnya, koordinasi tim menjadi lebih lancar, pekerjaan lebih cepat terselesaikan, dan kinerja perusahaan meningkat signifikan. Corvidian bukan hanya penyedia teknologi, tetapi mitra strategis yang membantu kami bergerak maju.",
-      author: "~Sugianto",
-      position: "Managing Partner MUC Consulting",
-    },
-    {
-      text: "Sebelum bekerja sama dengan Corvidian, banyak proses di MUC yang berjalan kurang efisien. Beberapa pekerjaan memerlukan waktu lebih lama karena sistem yang ada belum terintegrasi dengan baik. Setelah Corvidian hadir, semuanya berubah. Mereka memahami kebutuhan kami secara mendalam, merancang solusi yang tepat, dan memastikan setiap detail berjalan sesuai rencana. Hasilnya, koordinasi tim menjadi lebih lancar, pekerjaan lebih cepat terselesaikan, dan kinerja perusahaan meningkat signifikan. Corvidian bukan hanya penyedia teknologi, tetapi mitra strategis yang membantu kami bergerak maju.",
-      author: "~Sugianto",
-      position: "Managing Consulting",
-    },
-    {
-      text: "Sebelum bekerja sama dengan Corvidian, banyak proses di MUC yang berjalan kurang efisien. Beberapa pekerjaan memerlukan waktu lebih lama karena sistem yang ada belum terintegrasi dengan baik. Setelah Corvidian hadir, semuanya berubah. Mereka memahami kebutuhan kami secara mendalam, merancang solusi yang tepat, dan memastikan setiap detail berjalan sesuai rencana. Hasilnya, koordinasi tim menjadi lebih lancar, pekerjaan lebih cepat terselesaikan, dan kinerja perusahaan meningkat signifikan. Corvidian bukan hanya penyedia teknologi, tetapi mitra strategis yang membantu kami bergerak maju.",
-      author: "~Sugianto",
-      position: "Managing Partner MUC Consulting",
-    },
-  ];
-
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const inputStyle =
     "w-full bg-transparent border-0 border-b border-black pb-[8px] font-normal text-[18px] text-[#1D1F26] placeholder-[#1D1F26] focus:border-[#02C2B3] focus-visible:ring-0 rounded-none";
@@ -225,53 +205,8 @@ export default function ConsultationSchedule() {
           </Form>
         </div>
 
-        <div className="md:ml-auto w-full md:w-[738px] overflow-visible relative">
-          <div className="w-full h-auto relative">
-            <div className="absolute inset-0 w-full h-full z-0">
-              <Image
-                src="/schedule/Vector.png"
-                alt=""
-                fill
-                style={{ objectFit: "fill", objectPosition: "right top" }}
-              />
-            </div>
-
-            <div className="relative z-10 h-full flex flex-col justify-center pt-[50px] pb-[60px] pl-[140px] pr-[40px]">
-              <div className="ml-[60px] mb-[40px]">
-                <h3 className="font-extrabold text-[28px] text-[#F4F4F4]">
-                  Apa kata mereka tentang service Corvidian ?
-                </h3>
-              </div>
-              <div className="ml-[40px] flex flex-col justify-between">
-                <div className="pr-[9px] mb-[40px] text-white text-[16px]">
-                  {testimonials[currentTestimonial].text}
-                </div>
-                <div className="mb-[40px] text-white text-[14px] italic">
-                  <p>{testimonials[currentTestimonial].author}</p>
-                  <p>{testimonials[currentTestimonial].position}</p>
-                </div>
-                <div className="flex justify-center gap-[8px] pr-[100px]">
-                  {testimonials.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrentTestimonial(i)}
-                      className={`w-[10px] h-[10px] rounded-full ${
-                        i === currentTestimonial
-                          ? "bg-[#02C2B3]"
-                          : "bg-[#C5CED5]"
-                      }`}
-                    />
-                  ))}
-                  {Array.from({ length: 7 }, (_, i) => (
-                    <div
-                      key={i}
-                      className="w-[10px] h-[10px] rounded-full bg-[#C5CED5]"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="md:ml-auto w-full md:w-2/3 overflow-hidden relative">
+          <KataMereka />
         </div>
       </div>
     </section>

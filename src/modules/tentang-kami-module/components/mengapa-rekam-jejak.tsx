@@ -11,7 +11,7 @@ const MengapaRekamJejak = () => {
                     width={650}
                     height={481.84}
                     style={{zIndex:-1}}
-                    className="absolute object-contain left-[750px] top-[200px]"
+                    className="absolute object-contain right-0 top-[200px]"
                 />
         <div className="container relative mt-[40px] mx-[100px] px-4 lg:px-[100px] py-12 z-10 mb-[40px]">
           <div className="space-y-4 lg:space-y-6 w-full ">

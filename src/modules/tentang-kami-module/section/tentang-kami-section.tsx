@@ -8,6 +8,7 @@ import CaraKamiBekerja from '../components/cara-kami-bekerja';
 import ConsultationSection from '@/modules/homepage-module/section/consultation-section';
 import ConsultationSchedule from '@/modules/homepage-module/section/schedule-consultation-section';
 import HeroSectionTentangKami from '../components/hero-section-tentang-kami';
+import Footer from '@/modules/homepage-module/section/footer';
 
 
 const TentangKamiSection = () => {
@@ -22,6 +23,7 @@ const TentangKamiSection = () => {
       <ArtikelKami />
       <ConsultationSection />
       <ConsultationSchedule />
+      <Footer />
     </section>
   );
 }

@@ -8,9 +8,9 @@ const HeroSectionIt = () => {
   return (
     <div className='w-screen relative overflow-hidden'>
         {/* Background elements */}
-        <div className="w-full">
+        <div className="w-screen">
           <div 
-            className="absolute top-[200px] w-[1000px] h-[600px] left-[305px] bg-no-repeat bg-cover bg-center" 
+            className="absolute top-[200px] w-[1000px] h-[600px] right-[100px] bg-no-repeat bg-cover" 
             style={{ 
               zIndex: 2,
               backgroundImage: "url('/heroItInfra/BlueIt.png')" 
@@ -18,11 +18,11 @@ const HeroSectionIt = () => {
           />
           {/* Dark background - middle layer on large, below blue on medium */}
           <div 
-            className="absolute top-[232px] left-[800px] w-[575px] h-[450px] bg-[#1D1F26]" 
+            className="absolute top-[232px] right-0 w-[500px] h-[450px] bg-[#1D1F26]" 
             style={{ zIndex: 1, clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'}}
           />
           <div 
-            className="absolute top-[550px] w-full rounded-tr-[50px] h-full bg-[#f4f4f4]" 
+            className="absolute top-[550px] w-screen rounded-tr-[110px] h-full bg-[#f4f4f4]" 
             style={{ zIndex: 3, clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'}}
           />
         </div>
@@ -52,13 +52,13 @@ const HeroSectionIt = () => {
         </div>
         
         {/* ContentIt component section */}
-        <div className="relative z-40 mt-[0px]">
+        <div className="relative z-10 mt-[0px]">
           <div className="container mx-auto px-4 lg:px-8">
             <ContentIt/>
           </div>
         </div>
         
-        <div className="relative w-full h-full z-40 flex flex-row justify-between">
+        <div className="relative w-full h-full z-10 flex flex-row justify-between overflow-hidden">
           <div className="relative ml-[80px] mt-[80px] w-1/2">
             <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
               Mengapa menggunakan jasa IT Infrastructure Corvidian?
@@ -66,7 +66,7 @@ const HeroSectionIt = () => {
             <p className="text-sm lg:text-l text-corvidian-1 leading-relaxed max-w-2xl">
               Gratis konsultasi seputar IT Infrastructure untuk perusahaan Anda!
             </p>
-            <div className="relative w-full h-full z-40 flex flex-row ">
+            <div className="relative w-full h-full z-10 flex flex-row ">
               <div className="relative mt-[40px] w-1/3">
                 <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
                   80++

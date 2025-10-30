@@ -91,19 +91,19 @@ export const NavbarDesktop = () => {
           <div className="flex gap-8 text-sm font-normal whitespace-nowrap relative z-50">
             <button
               onClick={() => handleDropdownToggle("produk")}
-              className={`focus:outline-none transition-all duration-300 hover:text-white ${
-                activeDropdown === "produk" ? "text-corvidian-3" : ""
+              className={`focus:outline-none transition-all duration-300 cursor-pointer hover:text-[text-[#02C2B3]] ${
+                activeDropdown === "produk" ? "text-[#02C2B3]" : ""
               }`}
             >
               Produk & Layanan
             </button>
             <button
               onClick={() => handleDropdownToggle("wawasan")}
-              className={`focus:outline-none transition-all duration-300 hover:text-white ${
-                activeDropdown === "wawasan" ? "text-corvidian-3" : ""
+              className={`focus:outline-none transition-all duration-300 cursor-pointer hover:text-[text-[#02C2B3]] ${
+                activeDropdown === "wawasan" ? "text-[#02C2B3]" : ""
               }`}
             >
-              Wawasan              
+              Wawasan
             </button>
             <Link
               href="/tentang-kami"
@@ -117,14 +117,14 @@ export const NavbarDesktop = () => {
           <motion.div
             initial={false}
             animate={{
-              height: activeDropdown ? 754 : 0,
+              height: activeDropdown ? "auto" : 0,
               marginTop: activeDropdown ? 12 : 0,
             }}
             transition={{
               duration: 0.4,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            className="w-full"
+            className="w-full overflow-hidden"
           >
             <AnimatePresence mode="wait">
               {activeDropdown && (
