@@ -1,27 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Article } from "../interface";
+import { useMemo } from "react";
+import { useWawasanArticles } from "@/hooks/use-wawasan-articles";
 
 export const ArtikelTerkait = ({ currentSlug }: { currentSlug: string }) => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/wawasan/`)
-      .then((res) => res.json())
-      .then((data) => {
-        const filtered = data.filter(
-          (article: Article) => article.slug !== currentSlug
-        );
-        setArticles(filtered.slice(0, 3));
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [currentSlug]);
+  const { articles, loading } = useWawasanArticles();
+  const related = useMemo(
+    () =>
+      articles
+        .filter((article) => article.slug !== currentSlug)
+        .slice(0, 3),
+    [articles, currentSlug]
+  );
+  const isLoading = loading && articles.length === 0;
 
   return (
     <div className="py-20 max-w-[871px] mx-auto text-corvidian-1">
@@ -29,7 +23,7 @@ export const ArtikelTerkait = ({ currentSlug }: { currentSlug: string }) => {
         <h2 className="text-3xl font-bold mb-8">Artikel Terkait Lainnya.</h2>
 
         <div className="space-y-6">
-          {loading
+          {isLoading
             ? Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={i}
@@ -43,7 +37,7 @@ export const ArtikelTerkait = ({ currentSlug }: { currentSlug: string }) => {
                   </div>
                 </div>
               ))
-            : articles.map((article) => (
+            : related.map((article) => (
                 <Link
                   key={article.id}
                   href={`/tentang-kami/wawasan/${article.slug}`}
@@ -62,12 +56,9 @@ export const ArtikelTerkait = ({ currentSlug }: { currentSlug: string }) => {
                     <h3 className="text-lg font-semibold mb-2">
                       {article.title}
                     </h3>
-                    <p
-                      className="text-gray-600 text-sm mb-3 line-clamp-3"
-                      dangerouslySetInnerHTML={{
-                        __html: article.content.slice(0, 180) + "...",
-                      }}
-                    />
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                      {article.excerpt}
+                    </p>
                   </div>
                 </Link>
               ))}

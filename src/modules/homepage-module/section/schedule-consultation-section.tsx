@@ -77,7 +77,7 @@ export default function ConsultationSchedule() {
       <div className="max-w-[1388px] mx-auto relative flex flex-col md:flex-row px-4 md:px-0">
         <div className="md:w-[500px] w-full md:ml-[120px] mb-16 md:mb-0">
           <div className="mb-[20px]">
-            <h2 className="font-extrabold text-[33px] text-[#1D1F26] mb-[10px]">
+            <h2 className="font-extrabold text-[33px] text-[#1D1F26] mb-[10px] whitespace-nowrap">
               Jadwalkan Konsultasi Gratis
             </h2>
             <p className="font-medium text-[18px] text-[#1D1F26]">
@@ -179,7 +179,7 @@ export default function ConsultationSchedule() {
                 name="agreement"
                 control={form.control}
                 render={({ field }) => (
-                  <FormItem className="flex items-start gap-[10px] mt-[20px]">
+                  <FormItem className="flex items-start gap-[10px]">
                     <FormControl>
                       <Checkbox
                         checked={field.value}

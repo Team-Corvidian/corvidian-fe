@@ -1,24 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { WawasanCard } from "./wawasan-card";
 import { WawasanNews } from "./wawasan-news";
-import { Article } from "@/modules/wawasan-module/interface";
 import Link from "next/link";
+import { useWawasanArticles } from "@/hooks/use-wawasan-articles";
 
 export const WawasanDropdown = () => {
-  const [news, setNews] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/wawasan/`)
-      .then((res) => res.json())
-      .then((data: Article[]) => {
-        setNews(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+  const { articles, loading } = useWawasanArticles();
 
   return (
     <div className="flex flex-col max-h-[700px] overflow-hidden rounded-2xl">
@@ -46,7 +34,7 @@ export const WawasanDropdown = () => {
                   </div>
                 </div>
               ))
-            : news.map((item) => (
+            : articles.map((item) => (
                 <Link
                   key={item.id}
                   href={`/tentang-kami/wawasan/${item.slug}`}
@@ -60,9 +48,7 @@ export const WawasanDropdown = () => {
                         : ""
                     }
                     title={item.title}
-                    description={item.content
-                      .replace(/<[^>]+>/g, "")
-                      .slice(0, 150)}
+                    description={item.excerpt}
                   />
                 </Link>
               ))}

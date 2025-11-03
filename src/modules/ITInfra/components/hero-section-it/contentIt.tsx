@@ -1,17 +1,15 @@
 "use client"
 import React, { useState } from 'react'
 import { Button } from "@/components/ui/button";
-
 import Image from 'next/image'
 import Link from 'next/link'
+import { GlobalSearchWidget } from "@/components/search/global-search-widget";
 
 const ContentIt = () => {
-  // Separate state for each main section
   const [infrastructureExpanded, setInfrastructureExpanded] = useState(false)
   const [securityExpanded, setSecurityExpanded] = useState(false)
   const [operationsExpanded, setOperationsExpanded] = useState(false)
   
-  // Separate state for each subsection
   const [infrastructureDetailsExpanded, setInfrastructureDetailsExpanded] = useState(false)
   const [infrastructureFAQExpanded, setInfrastructureFAQExpanded] = useState(false)
   const [securityDetailsExpanded, setSecurityDetailsExpanded] = useState(false)
@@ -21,17 +19,11 @@ const ContentIt = () => {
 
   return (
     <div className='mb-[20px]'>
-        {/* Cari kata kunci */}
         <div className="text-sm top-[100px] lg:text-lg text-corvidian-1 leading-relaxed max-w-2xl font-medium">
           <p>Cari berdasarkan kata kunci</p>
         </div>
-        <input 
-          type="text" 
-          placeholder="Website, Landing Page, Sistem Internal.." 
-          className="bg-white text-black mt-4 mb-[8px] px-3 py-2 rounded-3xl w-[410px] h-[44px]"
-        />
-        
-        {/* Title Section */}
+        <GlobalSearchWidget />
+
         <div className="mt-[80px]">
           <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-bold">
             Rincian Solusi Berbasis IT Infrastructure

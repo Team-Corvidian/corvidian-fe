@@ -1,24 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Article } from "@/modules/wawasan-module/interface";
+import { useWawasanArticles } from "@/hooks/use-wawasan-articles";
 
 export const ArtikelKami = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/wawasan/`)
-      .then((res) => res.json())
-      .then((data: Article[]) => {
-        setArticles(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+  const { articles, loading } = useWawasanArticles();
 
   return (
     <div className="py-16 max-w-[871px] px-[180px] space-y-6 text-corvidian-1">
@@ -59,12 +47,9 @@ export const ArtikelKami = () => {
                     <h3 className="text-lg font-semibold mb-2">
                       {article.title}
                     </h3>
-                    <p
-                      className="text-gray-600 text-sm mb-3 line-clamp-3"
-                      dangerouslySetInnerHTML={{
-                        __html: article.content.slice(0, 180) + "...",
-                      }}
-                    />
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                      {article.excerpt}
+                    </p>
                   </div>
                 </Link>
               ))}

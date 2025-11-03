@@ -84,7 +84,7 @@ const Footer = () => {
       >
         <div className="max-w-[1388px] mx-auto">
           <div className="flex flex-col lg:flex-row gap-8">
-            <div className="w-full lg:w-1/2 text-white">
+            <div className="w-full lg:w-1/2 text-white translate-x-1/5">
               <div className="mb-6 flex justify-center lg:justify-start">
                 <Image
                   src="/footer/CordovaWhite.png"
