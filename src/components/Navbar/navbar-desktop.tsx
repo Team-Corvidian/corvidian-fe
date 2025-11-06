@@ -46,29 +46,31 @@ export const NavbarDesktop = ({ articles }: Props) => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className="px-20 py-8 flex justify-between items-center fixed top-0 left-0 right-0 bg-[#FFFFFF1A] backdrop-blur-lg z-50"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center"
       >
-        <Link href="/">
-          <Image
-            src="/navbar/navbar.png"
-            alt="Corvidian Logo"
-            width={120}
-            height={24}
-          />
-        </Link>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[linear-gradient(111deg,_#02C2B3_-11.36%,_#1D1F26_28.42%,_#1D1F26_67.11%,_#1578CB_121.2%)] px-4 py-2 border border-corvidian-5 rounded-full flex items-center gap-2"
-        >
-          <Image src="/navbar/whatsapp.png" alt="WA" width={21} height={21} />
-          <Link
-            href="https://wa.me/1234567890"
-            className="text-corvidian-4 text-sm font-bold"
-          >
-            WhatsApp Kami
+        <div className="w-full max-w-[1512px] px-20 py-8 flex justify-between items-center bg-[#FFFFFF1A] backdrop-blur-lg">
+          <Link href="/">
+            <Image
+              src="/navbar/navbar.png"
+              alt="Corvidian Logo"
+              width={120}
+              height={24}
+            />
           </Link>
-        </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[linear-gradient(111deg,_#02C2B3_-11.36%,_#1D1F26_28.42%,_#1D1F26_67.11%,_#1578CB_121.2%)] px-4 py-2 border border-corvidian-5 rounded-full flex items-center gap-2"
+          >
+            <Image src="/navbar/whatsapp.png" alt="WA" width={21} height={21} />
+            <Link
+              href="http://wa.me/62812219154780"
+              className="text-corvidian-4 text-sm font-bold"
+            >
+              WhatsApp Kami
+            </Link>
+          </motion.div>
+        </div>
       </motion.div>
 
       <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
