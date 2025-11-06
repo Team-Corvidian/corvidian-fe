@@ -3,7 +3,7 @@ import { FooterMobile } from "./footer-mobile";
 
 export const Footer = () => {
   return (
-    <div className="w-full">
+    <div className="w-full pt-20">
       <div className="hidden lg:block">
         <FooterDesktop />
       </div>
