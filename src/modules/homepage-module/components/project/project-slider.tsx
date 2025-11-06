@@ -26,17 +26,17 @@ export const ProjectSlider = () => {
   const handleMouseUp = () => setIsDragging(false);
 
   return (
-    <div className="w-full pt-8 pb-32">
+    <div className="w-full">
       <div
         ref={scrollRef}
-        className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+        className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing px-6"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="flex gap-6 w-max pb-4 pl-[max(1.5rem,calc((100vw-1280px)/2+5rem))] pr-[max(1.5rem,calc((100vw-1280px)/2+5rem))] 2xl:pl-[max(1.5rem,calc((1536px-1280px)/2+5rem))] 2xl:pr-[max(1.5rem,calc((1536px-1280px)/2+5rem))]">
-          <div className="w-[280px]">
+        <div className="flex gap-6 pb-4">
+          <div className="w-[280px] flex-shrink-0">
             <div className="bg-[linear-gradient(360deg,#FFFFFF_0%,#C5CED5_100%)] rounded-3xl shadow-lg overflow-hidden relative h-[400px] flex items-end">
               <div className="absolute left-0 top-0 h-full">
                 <Image
@@ -65,7 +65,7 @@ export const ProjectSlider = () => {
             </div>
           </div>
 
-          <div className="w-[280px]">
+          <div className="w-[280px] flex-shrink-0">
             <div className="bg-[linear-gradient(198.08deg,#02C2B3_-19.55%,#1D1F26_17.7%,#1D1F26_46.65%,#1578CB_95.15%)] rounded-3xl shadow-lg overflow-hidden relative h-[400px]">
               <div className="absolute bottom-0 left-0 w-full h-[75%]">
                 <Image
@@ -90,7 +90,7 @@ export const ProjectSlider = () => {
             </div>
           </div>
 
-          <div className="w-[280px]">
+          <div className="w-[280px] flex-shrink-0">
             <div className="bg-[linear-gradient(90deg,#FFFFFF_0%,#C5CED5_100%)] rounded-3xl shadow-lg overflow-hidden relative h-[400px]">
               <div className="absolute top-0 left-0 w-full h-[55%]">
                 <Image
@@ -115,14 +115,8 @@ export const ProjectSlider = () => {
             </div>
           </div>
 
-          <div className="w-[280px]">
-            <div
-              className="bg-[linear-gradient(142.7deg,#02C2B3_-28.02%,#1D1F26_17.75%,#1D1F26_62.27%,#1578CB_124.5%)] rounded-3xl overflow-hidden relative h-[400px]"
-              style={{
-                boxShadow:
-                  "0px 2.77px 2.21px 0px #00000005, 0px 6.65px 5.32px 0px #00000007, 0px 12.52px 10.02px 0px #00000009, 0px 22.34px 17.87px 0px #0000000B, 0px 41.78px 33.42px 0px #0000000D, 0px 100px 80px 0px #00000012",
-              }}
-            >
+          <div className="w-[280px] flex-shrink-0">
+            <div className="bg-[linear-gradient(142.7deg,#02C2B3_-28.02%,#1D1F26_17.75%,#1D1F26_62.27%,#1578CB_124.5%)] rounded-3xl overflow-hidden relative h-[400px]">
               <div className="absolute bottom-0 left-0 w-full h-[70%]">
                 <Image
                   src="/project/management.png"
@@ -148,14 +142,8 @@ export const ProjectSlider = () => {
             </div>
           </div>
 
-          <div className="w-[280px]">
-            <div
-              className="bg-[linear-gradient(360deg,#FFFFFF_0%,#C5CED5_100%)] rounded-3xl overflow-hidden relative h-[400px]"
-              style={{
-                boxShadow:
-                  "0px 2.77px 2.21px 0px #00000005, 0px 6.65px 5.32px 0px #00000007, 0px 12.52px 10.02px 0px #00000009, 0px 22.34px 17.87px 0px #0000000B, 0px 41.78px 33.42px 0px #0000000D, 0px 100px 80px 0px #00000012",
-              }}
-            >
+          <div className="w-[280px] flex-shrink-0">
+            <div className="bg-[linear-gradient(360deg,#FFFFFF_0%,#C5CED5_100%)] rounded-3xl overflow-hidden relative h-[400px]">
               <div className="absolute inset-0">
                 <Image
                   src="/project/timesheet.png"
@@ -179,14 +167,8 @@ export const ProjectSlider = () => {
             </div>
           </div>
 
-          <div className="w-[280px]">
-            <div
-              className="bg-[linear-gradient(360deg,#FFFFFF_0%,#C5CED5_100%)] rounded-3xl overflow-hidden relative h-[400px]"
-              style={{
-                boxShadow:
-                  "0px 2.77px 2.21px 0px #00000005, 0px 6.65px 5.32px 0px #00000007, 0px 12.52px 10.02px 0px #00000009, 0px 22.34px 17.87px 0px #0000000B, 0px 41.78px 33.42px 0px #0000000D, 0px 100px 80px 0px #00000012",
-              }}
-            >
+          <div className="w-[280px] flex-shrink-0">
+            <div className="bg-[linear-gradient(360deg,#FFFFFF_0%,#C5CED5_100%)] rounded-3xl overflow-hidden relative h-[400px]">
               <div className="p-8 flex flex-col h-full justify-center">
                 <p className="text-corvidian-1 text-sm mb-6">
                   Mau tahu lebih banyak, sistem yang siapa pakai?

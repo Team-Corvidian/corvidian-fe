@@ -2,10 +2,10 @@ import { ProjectSlider } from "../components/project/project-slider";
 
 export const ProjectSection = () => {
   return (
-    <section className="bg-corvidian-5 relative overflow-visible pb-0">
+    <section className="bg-corvidian-5 relative pb-0 max-w-[1512px] overflow-hidden">
       <div className="container mx-auto pt-7">
         <div className="flex flex-col lg:flex-row justify-between mb-12 px-6 lg:px-20 gap-6 text-center lg:text-left lg:items-end max-lg:text-center">
-          <div className="pt-10">
+          <div className="">
             <p className="text-corvidian-1 font-bold mb-2 flex justify-center lg:justify-start items-center gap-2 lg:text-2xl">
               <span
                 className="w-[14px] h-[14px] rounded-full"
@@ -29,10 +29,9 @@ export const ProjectSection = () => {
         </div>
       </div>
 
-      <div className="max-w-[1536px] mx-auto">
+      <div className="max-w-screen overflow-x-auto xl:translate-x-24 overflow-y-hidden">
         <ProjectSlider />
       </div>
-
     </section>
   );
 };
