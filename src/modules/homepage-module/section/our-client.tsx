@@ -31,15 +31,13 @@ const OurClient = () => {
 
   return (
     <section id="clients" className="w-full py-20">
-      <div className="w-full max-w-[1110px] mx-auto px-4">
-        {/* Title Section */}
+      <div className="w-full max-w-[1512px] mx-auto">
         <div className="flex justify-center mb-16">
           <h2 className="font-extrabold text-[30px] leading-[100%] text-corvidian-1 text-center">
             Klien Kami
           </h2>
         </div>
 
-        {/* Client Logos Grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 md:gap-x-20 justify-items-center items-center">
           {clientLogos.map((client, index) => (
             <div 

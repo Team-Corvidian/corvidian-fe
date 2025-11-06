@@ -26,30 +26,29 @@ const OurPromotionSection = () => {
   ];
 
   return (
-    <section id="why-us" className="w-[1512px] bg-[#f4f4f4] py-[60px] my-16">
+    <section
+      id="why-us"
+      className="max-w-[1512px] bg-[#f4f4f4] py-[60px] my-16"
+    >
       <div className="w-full max-w-[1110px] mx-auto px-4">
-        {/* Mobile layout - vertical stack */}
         <div className="flex flex-col gap-6 items-center md:hidden">
-          {/* Title & Subheadline Section */}
-          <div className="w-[338px]">
-            {/* Main Title */}
+          <div className="w-[338px] ">
             <div className="mb-[20px]">
               <h2 className="font-extrabold text-[28px] leading-[100%] text-corvidian-1">
                 Kenapa Banyak Bisnis Pilih Corvidian?
               </h2>
             </div>
-            
-            {/* Subheadline */}
+
             <div>
               <p className="font-medium text-[16px] leading-[120%] text-corvidian-1">
-                Berbagai jenis bisnis sudah memberikan testimoni, sekarang giliran kamu untuk menentukan!
+                Berbagai jenis bisnis sudah memberikan testimoni, sekarang
+                giliran kamu untuk menentukan!
               </p>
             </div>
           </div>
 
-          {/* All cards stacked vertically on mobile */}
           {promotionPoints.map((point, index) => (
-            <PromotionCard 
+            <PromotionCard
               key={index}
               title={point.title}
               content={point.content}
@@ -58,30 +57,25 @@ const OurPromotionSection = () => {
           ))}
         </div>
 
-        {/* Desktop layout - rows */}
         <div className="hidden md:block">
-          {/* First Row - Title/Subheadline + 2 Cards */}
           <div className="flex gap-[25px] mb-[25px]">
-            {/* Title & Subheadline Section */}
             <div className="w-[400px] flex flex-col justify-center">
-              {/* Main Title */}
               <div className="mb-[20px]">
                 <h2 className="font-extrabold text-[28px] leading-[100%] text-corvidian-1">
                   Kenapa Banyak Bisnis Pilih Corvidian?
                 </h2>
               </div>
-              
-              {/* Subheadline */}
+
               <div>
                 <p className="font-medium text-[16px] leading-[120%] text-corvidian-1">
-                  Berbagai jenis bisnis sudah memberikan testimoni, sekarang giliran kamu untuk menentukan!
+                  Berbagai jenis bisnis sudah memberikan testimoni, sekarang
+                  giliran kamu untuk menentukan!
                 </p>
               </div>
             </div>
 
-            {/* First Row Cards */}
             {promotionPoints.slice(0, 2).map((point, index) => (
-              <PromotionCard 
+              <PromotionCard
                 key={index}
                 title={point.title}
                 content={point.content}
@@ -89,10 +83,9 @@ const OurPromotionSection = () => {
             ))}
           </div>
 
-          {/* Second Row - 3 Cards */}
-          <div className="flex gap-[25px]">
+          <div className="flex gap-[25px] bg-[#f4f4f4]">
             {promotionPoints.slice(2, 5).map((point, index) => (
-              <PromotionCard 
+              <PromotionCard
                 key={index + 2}
                 title={point.title}
                 content={point.content}
@@ -102,7 +95,7 @@ const OurPromotionSection = () => {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default OurPromotionSection
