@@ -3,7 +3,6 @@ import OurPromotionSection from "./section/our-promotion-section";
 import { HeroSection } from "./section/hero-section";
 import { ProblemSection } from "./section/problem-section";
 import { ProjectSection } from "./section/project-section";
-import ConsultationSchedule from "./section/schedule-consultation-section";
 import OurClient from "./section/our-client";
 
 export const HomepageModule = () => {
@@ -15,7 +14,7 @@ export const HomepageModule = () => {
         <ProjectSection />
         <OurPromotionSection />
         <ConsultationSection />
-        <ConsultationSchedule />
+        {/* <ConsultationSchedule /> */}
         <OurClient />
       </div>
     </div>
