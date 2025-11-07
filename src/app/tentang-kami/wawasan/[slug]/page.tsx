@@ -4,8 +4,12 @@ import {
 } from "@/lib/api/wawasan-api";
 import { WawasanModule } from "@/modules/wawasan-module";
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const [article, articles] = await Promise.all([
     fetchWawasanArticle(slug).catch(() => null),
     fetchWawasanPreviews().catch(() => []),
