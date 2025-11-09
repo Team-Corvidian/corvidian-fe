@@ -10,7 +10,7 @@ const PromotionCard = ({ title, content, isMobile = false }: PromotionCardProps)
   return (
     <div
       className={`${
-        isMobile ? "w-[338px] h-[166px]" : "w-[400px] h-[197px]"
+        isMobile ? "w-[300px] h-[166px]" : "w-[400px] h-[197px]"
       } border-[3px] border-corvidian-2 bg-[#f4f4f4] p-[20px] flex flex-col justify-center`}
       style={{
         borderRadius: "0 20px 20px 20px",
