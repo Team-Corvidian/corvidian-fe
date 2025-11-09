@@ -29,14 +29,14 @@ const HeroSectionIt = () => {
         {/* Background elements - Mobile */}
         <div className="block lg:hidden w-screen">
           <div 
-            className="absolute top-[200px] w-[200px] h-[120px] right-4 bg-no-repeat bg-cover" 
+            className="absolute top-[200px] w-[250px] h-[120px] right-4 bg-no-repeat bg-cover" 
             style={{ 
               zIndex: 2,
-              backgroundImage: "url('/heroItInfra/BlueIt.png')" 
+              backgroundImage: "url('/heroItInfra/MobileBlue.png')" 
             }}
           />
           <div 
-            className="absolute top-[220px] right-0 w-[130px] h-[120px] bg-[#1D1F26]" 
+            className="absolute top-[215px] right-0 w-[120px] h-[160px] bg-[#1D1F26]" 
             style={{ zIndex: 1, clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'}}
           />
           <div 
@@ -46,7 +46,7 @@ const HeroSectionIt = () => {
         </div>
         
         {/* Main hero content */}
-        <div className="container relative mt-[60px] lg:mt-[100px] mx-auto px-4 lg:px-8 py-8 lg:py-20 z-10 mb-[40px] lg:mb-[90px]">
+        <div className="container relative mt-[40px] lg:mt-[100px] mx-auto px-6 lg:px-8 py-8 lg:py-20 z-10 mb-[40px] lg:mb-[90px]">
           <div className="space-y-3 lg:space-y-6">
                 <h1 className="text-[24px] md:text-3xl lg:text-5xl xl:text-5xl font-extrabold text-corvidian-1 leading-tight max-w-[280px] lg:max-w-none">
                   IT Infrastruktur
@@ -71,14 +71,14 @@ const HeroSectionIt = () => {
         
         {/* ContentIt component section */}
         <div className="relative z-10 mt-0">
-          <div className="container mx-auto px-4 lg:px-8">
+          <div className="container mx-auto px-6 lg:px-8">
             <ContentIt/>
           </div>
         </div>
         
         {/* Why Corvidian Section - Desktop */}
         <div className="hidden lg:flex relative w-full h-full z-10 flex-row justify-between overflow-hidden">
-          <div className="relative ml-[80px] mt-[80px] w-1/2">
+          <div className="relative ml-[80px] lg:mt-[80px] mt-[40px] w-1/2">
             <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
               Mengapa menggunakan jasa IT Infrastructure Corvidian?
             </p>
@@ -114,10 +114,10 @@ const HeroSectionIt = () => {
         </div>
 
         {/* Why Corvidian Section - Mobile */}
-        <div className="block lg:hidden relative w-full z-10 px-4 mt-8 mb-8">
+        <div className="block lg:hidden relative w-full z-10  mt-8 ">
           <div className="flex flex-col gap-4">
             {/* Title & Description */}
-            <div>
+            <div className='px-6'>
               <p className="text-[18px] text-corvidian-1 leading-tight font-extrabold mb-2">
                 Mengapa menggunakan jasa IT Infrastructure Corvidian?
               </p>
@@ -127,9 +127,8 @@ const HeroSectionIt = () => {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-8 mt-4">
-            {/* Cable Image */}
-              <div>
+            <div className="flex gap-8 justify-between ps-6 mt-4">
+              <div className=''>
                 <p className="text-[24px] text-corvidian-1 font-extrabold">
                   80++
                 </p>
@@ -137,7 +136,7 @@ const HeroSectionIt = () => {
                   Klien
                 </p>
               </div>
-              <div>
+              <div className=''>
                 <p className="text-[24px] text-corvidian-1 font-extrabold">
                   4.9/5
                 </p>
@@ -145,6 +144,7 @@ const HeroSectionIt = () => {
                   Rating
                 </p>
               </div>
+            {/* Cable Image */}
                 <div className="flex justify-center top-[-10px] right-0">
                   <Image
                     src="/heroItInfra/Cable.png"

@@ -62,7 +62,7 @@ export const NavbarMobile = () => {
     },
     {
       title: "Digital Software Solutions",
-      link: "/digital-software-solutions",
+      link: "/digital-software-solution",
       items: [
         {
           title: "Pengembangan Aplikasi",
