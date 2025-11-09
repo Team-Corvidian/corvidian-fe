@@ -29,7 +29,7 @@ export const ProjectSlider = () => {
     <div className="w-full">
       <div
         ref={scrollRef}
-        className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing px-6"
+        className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing px-8"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -179,6 +179,8 @@ export const ProjectSlider = () => {
               </div>
             </div>
           </div>
+
+          <div className="w-[50px] md:w-[240px] lg:w-[320px] flex-shrink-0" />
         </div>
       </div>
 
