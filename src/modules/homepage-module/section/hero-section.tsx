@@ -88,7 +88,7 @@ export const HeroSection = () => {
                   width={420}
                   height={280}
                   quality={100}
-                  className="absolute top-0 right-0 object-contain z-30 max-w-[45%] -translate-y-1/4 xl:translate-x-28 xl:-translate-y-35"
+                  className="absolute top-0 right-0 object-contain z-30 max-w-[30%] -translate-y-1/4 xl:translate-x-8 xl:-translate-y-28"
                 />
                 <Image
                   src="/hero/phone.png"
