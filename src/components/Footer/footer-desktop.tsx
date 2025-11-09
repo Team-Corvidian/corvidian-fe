@@ -41,7 +41,7 @@ export const FooterDesktop = () => {
     <footer className="relative mx-auto w-full max-w-[1512px] min-h-[400px] overflow-hidden">
       <div className="absolute bottom-0 right-0 z-10 h-[400px] w-[1000px] bg-corvidian-1 max-xl:w-[900px]" />
 
-      <div className="relative z-30 container mx-auto grid h-full min-h-[420px] grid-cols-12 text-white overflow-y-hidden overflow-x-">
+      <div className="relative z-30 container mx-auto grid h-full min-h-[420px] grid-cols-12 text-white overflow-hidden">
         <div className="col-span-6 flex pl-16 pb-12 pt-12">
           <div className="ml-36 mt-16 space-y-6 max-xl:ml-8 xl:translate-y-8">
             <div className="flex items-center">
@@ -63,7 +63,7 @@ export const FooterDesktop = () => {
           </div>
         </div>
 
-        <div className="col-span-6 flex flex-col justify-between pl-24 lg:translate-x-8 pr-16 translate-y-10  pt-24 pb-20 max-xl:pl-10 max-xl:pr-12 max-xl:pt-16 max-xl:pb-14">
+        <div className="col-span-6 flex flex-col justify-between pl-24 lg:translate-x-8 pr-16 translate-y-10 pt-24 pb-20 max-xl:pl-10 max-xl:pr-12 max-xl:pt-16 max-xl:pb-14">
           <div className="flex items-center justify-between gap-6 max-xl:gap-5">
             <p className="w-[360px] text-xs leading-5 text-[#F4F4F4] whitespace-pre-line max-xl:w-[300px] max-xl:text-[11px] max-xl:leading-[18px]">
               Dapatkan info penawaran menarik lebih awal dengan{" "}
@@ -184,7 +184,7 @@ export const FooterDesktop = () => {
             width={1000}
             height={400}
             priority
-            className="w-[900px] h-auto translate-y-10 max-xl:-translate-x-56 max-2xl:-translate-x-14"
+            className="w-[900px] h-auto translate-y-10 max-xl:-translate-x-62 max-2xl:-translate-x-14"
           />
         </div>
 
@@ -195,7 +195,7 @@ export const FooterDesktop = () => {
             width={800}
             height={400}
             priority
-            className="w-[800px] h-auto max-xl:-translate-x-48 max-2xl:-translate-x-12"
+            className="w-[800px] h-auto max-xl:-translate-x-54 max-2xl:-translate-x-12"
           />
         </div>
       </div>
