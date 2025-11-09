@@ -7,8 +7,8 @@ import OurClient from "./section/our-client";
 
 export const HomepageModule = () => {
   return (
-    <div className="w-screen flex justify-center">
-      <div className="w-[1512px] min-h-screen">
+    <div className="w-full flex justify-center lg:px-0">
+      <div className="w-full max-w-[1440px] min-h-screen">
         <HeroSection />
         <ProblemSection />
         <ProjectSection />
