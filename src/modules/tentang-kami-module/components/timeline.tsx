@@ -1,44 +1,49 @@
-import React from 'react'
+import React from "react";
 
 const Timeline = () => {
   const timelineData = [
     {
       title: "10 Tahun Pengalaman",
-      description: "Tim berpengalaman yang menggabungkan pengetahuan teknis dan strategi bisnis untuk menghasilkan solusi tepat guna.",
+      description:
+        "Tim berpengalaman yang menggabungkan pengetahuan teknis dan strategi bisnis untuk menghasilkan solusi tepat guna.",
     },
     {
       title: "200+ Pengguna",
-      description: "Dipercaya oleh ratusan pengguna dari berbagai industri yang mengandalkan solusi digital kami setiap hari.",
+      description:
+        "Dipercaya oleh ratusan pengguna dari berbagai industri yang mengandalkan solusi digital kami setiap hari.",
     },
     {
       title: "60+ Sistem Dikembangkan",
-      description: "Portofolio luas dengan sistem yang dirancang sesuai kebutuhan spesifik, dari skala kecil hingga enterprise.",
+      description:
+        "Portofolio luas dengan sistem yang dirancang sesuai kebutuhan spesifik, dari skala kecil hingga enterprise.",
     },
     {
       title: "12 Klien Aktif",
-      description: "Hubungan jangka panjang dengan klien yang berlanjut melalui inovasi dan dukungan berkelanjutan.",
+      description:
+        "Hubungan jangka panjang dengan klien yang berlanjut melalui inovasi dan dukungan berkelanjutan.",
     },
   ];
 
   return (
-    <div className="w-full mt-8">
+    <div className="w-full max-w-3xl pl-4 py-8">
       <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute left-[9px] top-[10px] bottom-0 w-[3px] bg-corvidian-1 lg:h-[85%] h-[80%]"></div>
-       
-        {/* Timeline items */}
-        <div className="space-y-8">
+        <div className="absolute left-[9px] md:left-[11px] top-[10px] w-[2px] md:w-[3px] bg-[#1578CB] h-[calc(100%-40px)]"></div>
+
+        <div className="space-y-6 md:space-y-8">
           {timelineData.map((item, index) => (
-            <div key={index} className="relative pl-8">
-              {/* Blue dot */}
-              <div className="absolute left-0 top-1 w-[20px] h-[20px] rounded-full bg-[#2A77BD] border-2 border-white"></div>
-              
-              {/* Content */}
+            <div key={index} className="relative pl-8 md:pl-12">
+              <div
+                className="absolute left-0 top-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#1578CB]"
+                style={{
+                  border: "2px solid #C5CED5",
+                }}
+              ></div>
+
               <div>
-                <h3 className="text-[16px] font-bold text-black mb-2">
+                <h3 className="text-base md:text-lg font-bold text-black mb-2">
                   {item.title}
                 </h3>
-                <p className="text-[14px] text-gray-700 leading-relaxed w-5/8 text-justify">
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed text-justify pr-0 md:pr-8">
                   {item.description}
                 </p>
               </div>
@@ -47,7 +52,7 @@ const Timeline = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;
