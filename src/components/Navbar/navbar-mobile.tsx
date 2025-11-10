@@ -4,11 +4,23 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 import ProdukAplikasiSiapMobile from "./dropdowns/produk-dropdown/produk-aplikasi-siap-mobile";
+import ProdukSolusiLayananMobile from "./dropdowns/produk-dropdown/produk-solusi-layanan.-mobile";
+import { WawasanDropdown } from "./dropdowns/wawasan-dropdown/wawasan-dropdown";
 
-export const NavbarMobile = () => {
+interface NavbarMobileProps {
+  articles?: Array<{
+    id: string;
+    slug: string;
+    title: string;
+    excerpt: string;
+    cover_image: string;
+    published_at: string;
+  }>;
+}
+
+export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
@@ -16,72 +28,20 @@ export const NavbarMobile = () => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 
-  // Data untuk Produk & Layanan
-  const serviceCategories = [
-    {
-      title: "IT Infrastructure",
-      link: "/it-infrastructure",
-      items: [
-        {
-          title: "Pembuatan & Instalasi Jaringan",
-          description: "(LAN/WAN, Wireless, dan VLAN)",
-          link: "/layanan/it-infrastructure/jaringan",
-        },
-        {
-          title: "Pengaturan & Keamanan Perangkat Jaringan",
-          description: "(Router, Switch, dan Firewall)",
-          link: "/layanan/it-infrastructure/keamanan",
-        },
-        {
-          title: "Pemeliharaan & Pemantauan Jaringan",
-          description: "Monitoring dan maintenance",
-          link: "/layanan/it-infrastructure/pemeliharaan",
-        },
-      ],
-    },
-    {
-      title: "Web Design & Development",
-      link: "/web-design-development",
-      items: [
-        {
-          title: "Pembuatan Website",
-          description: "(Company Profile, Landing Page)",
-          link: "/layanan/web/pembuatan",
-        },
-        {
-          title: "Desain UI/UX",
-          description: "(UI/UX Website)",
-          link: "/layanan/web/desain",
-        },
-        {
-          title: "Pemeliharaan & Optimalisasi Website",
-          description: "(Maintenance dan Konsultasi)",
-          link: "/layanan/web/pemeliharaan",
-        },
-      ],
-    },
-    {
-      title: "Digital Software Solutions",
-      link: "/digital-software-solution",
-      items: [
-        {
-          title: "Pengembangan Aplikasi",
-          description: "(Mobile & Desktop App)",
-          link: "/layanan/software/aplikasi",
-        },
-        {
-          title: "Desain UI/UX",
-          description: "(UI/UX Aplikasi)",
-          link: "/layanan/software/desain",
-        },
-        {
-          title: "Pemeliharaan Sistem & Manajemen Data",
-          description: "(Perawatan & Manajemen Data)",
-          link: "/layanan/software/pemeliharaan",
-        },
-      ],
-    },
-  ];
+  const handleClose = () => {
+    setIsOpen(false);
+    setExpandedSection(null);
+  };
+
+  const handleMenuToggle = () => {
+    // Jika ada section yang expanded, tutup section tersebut dulu
+    if (expandedSection !== null) {
+      setExpandedSection(null);
+    } else {
+      // Jika tidak ada section yang expanded, toggle navbar
+      setIsOpen(!isOpen);
+    }
+  };
 
   return (
     <>
@@ -101,18 +61,12 @@ export const NavbarMobile = () => {
             />
           </Link>
           <motion.button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={handleMenuToggle}
             className="text-[#1D1F26] p-2"
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              initial={false}
-              animate={{ rotate: isOpen ? 90 : 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.div>
+            <Menu size={24} />
           </motion.button>
         </div>
 
@@ -130,21 +84,16 @@ export const NavbarMobile = () => {
             >
               <div className="flex flex-col gap-4 px-6 pb-6">
                 {/* Produk & Layanan Dropdown */}
+                {expandedSection !== "wawasan" && (
                 <div className="border-b border-gray-200 pb-3">
+                  {expandedSection === null && (
                   <button
                     onClick={() => toggleSection("produk")}
                     className="flex justify-between items-center w-full text-corvidian-1 text-base font-medium"
                   >
                     <span>Produk & Layanan</span>
-                    <motion.div
-                      animate={{
-                        rotate: expandedSection === "produk" ? 180 : 0,
-                      }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown size={20} />
-                    </motion.div>
                   </button>
+                  )}
 
                   <AnimatePresence>
                     {expandedSection === "produk" && (
@@ -158,33 +107,7 @@ export const NavbarMobile = () => {
                         <div className="mt-4 space-y-4">
                           {/* Solusi Berdasarkan Layanan */}
                           <div>
-                            {serviceCategories.map((category, idx) => (
-                              <div key={idx} className="mb-6">
-                                <div className="h-[40px] mb-4 w-fit rounded-full flex items-center justify-center p-[2px]" style={{background:"linear-gradient(to right, #02C2B3, #1D1F26, #1D1F26, #1578CB)"}}>
-                                  <Button variant="outline" size="sm" className="text-[12px] text-black font-bold w-fit rounded-full bg-white hover:bg-gray-50 px-4">
-                                    <Link href={category.link} className='pointer' onClick={() => setIsOpen(false)}>
-                                      {category.title}
-                                    </Link>
-                                  </Button>
-                                </div>
-                                <div className="space-y-2 pl-3">
-                                  {category.items.map((item, itemIdx) => (
-                                    <div key={itemIdx}>
-                                      <Link
-                                        href={item.link}
-                                        className="text-sm text-black hover:text-[#02C2B3] block transition-colors font-semibold"
-                                        onClick={() => setIsOpen(false)}
-                                      >
-                                        {item.title}
-                                      </Link>
-                                      <p className="text-xs text-gray-400">
-                                        {item.description}
-                                      </p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
+                            <ProdukSolusiLayananMobile onLinkClick={handleClose} />
                           </div>
 
                           {/* Aplikasi Siap Pakai */}
@@ -199,27 +122,43 @@ export const NavbarMobile = () => {
                     )}
                   </AnimatePresence>
                 </div>
-
-                {/* Wawasan - Hidden when Produk expanded */}
-                {expandedSection !== "produk" && (
-                  <motion.div
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -20, opacity: 0 }}
-                    transition={{ delay: 0.15, duration: 0.3 }}
-                  >
-                    <Link
-                      href="/wawasan"
-                      className="text-corvidian-1 text-base font-medium block"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Wawasan
-                    </Link>
-                  </motion.div>
                 )}
 
-                {/* Tentang Kami - Hidden when Produk expanded */}
+                {/* Wawasan Dropdown */}
                 {expandedSection !== "produk" && (
+                <div className="border-b border-gray-200 pb-3">
+                  {expandedSection === null && (
+                    <button
+                      onClick={() => toggleSection("wawasan")}
+                      className="flex justify-between items-center w-full text-corvidian-1 text-base font-medium"
+                    >
+                      <span>Wawasan</span>
+                    </button>
+                  )}
+
+                  <AnimatePresence>
+                    {expandedSection === "wawasan" && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-4">
+                          <WawasanDropdown 
+                            articles={articles} 
+                            onLinkClick={handleClose}
+                          />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                )}
+
+                {/* Tentang Kami - Hidden when Produk or Wawasan expanded */}
+                {expandedSection !== "produk" && expandedSection !== "wawasan" && (
                   <motion.div
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -229,7 +168,7 @@ export const NavbarMobile = () => {
                     <Link
                       href="/tentang-kami"
                       className="text-corvidian-1 text-base font-medium block"
-                      onClick={() => setIsOpen(false)}
+                      onClick={handleClose}
                     >
                       Tentang Kami
                     </Link>
@@ -240,8 +179,9 @@ export const NavbarMobile = () => {
             </motion.nav>
           )}
         </AnimatePresence>
+        
         {/* Scroll Down Indicator */}
-        {(expandedSection === "produk" && isOpen) && (
+        {((expandedSection === "produk" || expandedSection === "wawasan") && isOpen) && (
           <div className="flex flex-col items-center mt-6 mb-2">
             <p className="text-xs text-gray-500 mb-2">Scroll Down for other option</p>
             <div className="flex gap-1">
@@ -262,12 +202,10 @@ export const NavbarMobile = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="fixed inset-0 bg-black/50 z-40"
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
           />
         )}
       </AnimatePresence>
-      
-    
     </>
   );
 };
