@@ -1,16 +1,16 @@
-import { ArticlePreview } from "@/lib/api/wawasan-api";
+import type { ArticlePreview } from "@/lib/api/wawasan-api";
 import { WawasanHero } from "../components/wawasan-hero";
 import { ArtikelTerkait } from "../components/artikel-terkait";
-import { Article } from "../interface";
+import { ArticleDetail } from "../interface";
 
 interface Props {
-  article: Article;
+  article: ArticleDetail;
   articles: ArticlePreview[];
 }
 
 export const WawasanSection = ({ article, articles }: Props) => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen max-w-[1512px] mx-auto">
       <WawasanHero
         cover_image={article.cover_image}
         title={article.title}

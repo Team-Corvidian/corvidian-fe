@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { staticSearchItems, SearchCategory } from "@/lib/search-data";
-import { Article } from "@/modules/wawasan-module/interface";
+import { ArticlePreview } from "@/modules/wawasan-module/interface";
 import { fetchWawasanArticles } from "@/lib/api/wawasan-api";
 
 type DynamicCategory = SearchCategory | "wawasan";
@@ -64,10 +64,10 @@ const buildStaticEntries = (): SearchEntry[] =>
 
 const buildWawasanEntries = async (): Promise<SearchEntry[]> => {
   try {
-    const data: Article[] = await fetchWawasanArticles();
-    if (data.length === 0) return [];
-    return data.slice(0, 25).map((article) => {
-      const text = stripHtml(article.content);
+    const data = await fetchWawasanArticles();
+    if (data.results.length === 0) return [];
+    return data.results.slice(0, 25).map((article: ArticlePreview) => {
+      const text = stripHtml(article.excerpt);
       return {
         id: `wawasan-${article.id}`,
         title: article.title,

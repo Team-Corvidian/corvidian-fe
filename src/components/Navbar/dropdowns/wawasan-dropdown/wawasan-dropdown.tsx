@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { WawasanCard } from "./wawasan-card";
 import { WawasanNews } from "./wawasan-news";
-import { ArticlePreview } from "@/lib/api/wawasan-api";
+import type { ArticlePreview } from "@/lib/api/wawasan-api";
 
 interface Props {
   articles: ArticlePreview[];

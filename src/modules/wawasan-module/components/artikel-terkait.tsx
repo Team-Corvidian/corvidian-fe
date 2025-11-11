@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArticlePreview } from "@/lib/api/wawasan-api";
+import type { ArticlePreview } from "@/lib/api/wawasan-api";
 
 interface Props {
   currentSlug: string;

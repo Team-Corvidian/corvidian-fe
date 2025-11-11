@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { WawasanDropdown } from "./dropdowns/wawasan-dropdown/wawasan-dropdown";
 import { ProdukDropdown } from "./dropdowns/produk-dropdown/produk-dropdown";
-import { ArticlePreview } from "@/lib/api/wawasan-api";
+import type { ArticlePreview } from "@/lib/api/wawasan-api";
 type ActiveDropdown = "produk" | "wawasan" | null;
 
 interface Props {

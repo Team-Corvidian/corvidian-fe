@@ -10,7 +10,7 @@ export async function Navbar() {
         <NavbarDesktop articles={articles} />
       </div>
       <div className="block lg:hidden">
-        <NavbarMobile />
+        <NavbarMobile articles={articles} />
       </div>
     </div>
   );

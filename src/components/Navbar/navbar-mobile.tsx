@@ -8,7 +8,7 @@ import { Menu } from "lucide-react";
 import ProdukAplikasiSiapMobile from "./dropdowns/produk-dropdown/produk-aplikasi-siap-mobile";
 import ProdukSolusiLayananMobile from "./dropdowns/produk-dropdown/produk-solusi-layanan.-mobile";
 import { WawasanDropdown } from "./dropdowns/wawasan-dropdown/wawasan-dropdown";
-import { ArticlePreview } from "@/lib/api/wawasan-api";
+import type { ArticlePreview } from "@/lib/api/wawasan-api";
 
 interface NavbarMobileProps {
   articles?: ArticlePreview[];

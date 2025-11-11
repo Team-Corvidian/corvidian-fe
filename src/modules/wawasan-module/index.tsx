@@ -1,9 +1,9 @@
-import { ArticlePreview } from "@/lib/api/wawasan-api";
+import type { ArticlePreview } from "@/lib/api/wawasan-api";
 import { WawasanSection } from "./section/wawasan-section";
-import { Article } from "./interface";
+import { ArticleDetail } from "./interface";
 
 interface Props {
-  article: Article;
+  article: ArticleDetail;
   articles: ArticlePreview[];
 }
 

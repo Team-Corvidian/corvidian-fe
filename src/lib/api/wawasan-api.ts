@@ -1,46 +1,83 @@
-import { Article } from "@/modules/wawasan-module/interface";
+import {
+  ArticleDetail,
+  ArticlePreview,
+} from "@/modules/wawasan-module/interface";
 
-export interface ArticlePreview {
-  id: number;
-  slug: string;
-  cover_image: string;
-  title: string;
-  author: string;
-  published_at: string;
-  excerpt: string;
-}
+export type { ArticleDetail, ArticlePreview } from "@/modules/wawasan-module/interface";
 
-const withDefaultInit = (init?: RequestInit) => ({
-  cache: "no-store" as RequestCache,
-  ...init,
-});
+type FetchInit = RequestInit & {
+  next?: {
+    revalidate?: number | false;
+    tags?: string[];
+  };
+};
+
+const withDefaultInit = (init?: FetchInit): FetchInit => {
+  const isDev = process.env.NODE_ENV !== "production";
+  const defaults: FetchInit = {
+    cache: isDev ? "no-store" : "force-cache",
+  };
+
+  if (!isDev) {
+    defaults.next = { revalidate: 300 };
+  }
+
+  return {
+    ...defaults,
+    ...init,
+    cache: init?.cache ?? defaults.cache,
+    next: init?.next ?? defaults.next,
+  };
+};
 
 const getApiBaseUrl = () => process.env.NEXT_PUBLIC_API_BASE_URL;
 
+type PaginatedResponse<T> = {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: T[];
+};
+
+const emptyPaginated = <T>(): PaginatedResponse<T> => ({
+  count: 0,
+  next: null,
+  previous: null,
+  results: [],
+});
+
 const stripHtml = (value: string) => value.replace(/<[^>]*>/g, "");
 
-const toArticlePreviews = (articles: Article[]): ArticlePreview[] =>
-  articles.map((article) => {
-    const plain = stripHtml(article.content);
-    const excerpt =
-      plain.length > 200 ? `${plain.slice(0, 200).trimEnd()}...` : plain;
-    return {
-      id: article.id,
-      slug: article.slug,
-      cover_image: article.cover_image,
-      title: article.title,
-      author: article.author,
-      published_at: article.published_at,
-      excerpt,
-    };
-  });
+const truncateWords = (value: string, maxWords = 50) => {
+  const words = value.trim().split(/\s+/);
+  if (words.length <= maxWords) {
+    return value.trim();
+  }
+  return `${words.slice(0, maxWords).join(" ")}…`;
+};
+
+const toArticlePreview = (
+  article: ArticlePreview | ArticleDetail
+): ArticlePreview => ({
+  id: article.id,
+  slug: article.slug,
+  cover_image: article.cover_image,
+  title: article.title,
+  author: article.author,
+  published_at: article.published_at,
+  excerpt: truncateWords(stripHtml(article.excerpt ?? "")),
+});
+
+const toArticlePreviews = (
+  articles: Array<ArticlePreview | ArticleDetail>
+): ArticlePreview[] => articles.map(toArticlePreview);
 
 export const fetchWawasanArticles = async (
   init?: RequestInit
-): Promise<Article[]> => {
+): Promise<PaginatedResponse<ArticlePreview>> => {
   const baseUrl = getApiBaseUrl();
   if (!baseUrl) {
-    return [];
+    return emptyPaginated();
   }
 
   const response = await fetch(`${baseUrl}/api/wawasan/`, withDefaultInit(init));
@@ -48,13 +85,17 @@ export const fetchWawasanArticles = async (
     throw new Error("Failed to load wawasan articles");
   }
 
-  return (await response.json()) as Article[];
+  const data = (await response.json()) as PaginatedResponse<ArticlePreview>;
+  return {
+    ...data,
+    results: toArticlePreviews(data.results),
+  };
 };
 
 export const fetchWawasanArticle = async (
   slug: string,
   init?: RequestInit
-): Promise<Article | null> => {
+): Promise<ArticleDetail | null> => {
   const baseUrl = getApiBaseUrl();
   if (!baseUrl) {
     return null;
@@ -73,15 +114,19 @@ export const fetchWawasanArticle = async (
     throw new Error("Failed to load wawasan article");
   }
 
-  return (await response.json()) as Article;
+  const data = (await response.json()) as ArticleDetail;
+  return {
+    ...data,
+    excerpt: data.excerpt ?? "",
+  };
 };
 
 export const fetchWawasanPreviews = async (
   init?: RequestInit
 ): Promise<ArticlePreview[]> => {
   try {
-    const articles = await fetchWawasanArticles(init);
-    return toArticlePreviews(articles);
+    const data = await fetchWawasanArticles(init);
+    return data.results;
   } catch {
     return [];
   }
