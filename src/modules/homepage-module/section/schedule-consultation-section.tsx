@@ -68,9 +68,9 @@ export default function ConsultationSchedule() {
   return (
     <section
       id="konsultasi"
-      className="relative w-full max-w-[1512px] mx-auto overflow-hidden py-12 md:py-20"
+      className="relative w-full overflow-hidden py-12 md:py-20 px-4 sm:px-6 lg:px-8"
     >
-      <div className="w-full max-w-[1388px] mx-auto lg:ms-auto lg:px-0">
+      <div className="w-full max-w-screen-xl mx-auto lg:px-0">
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-[500px] lg:ml-[50px]">
             <div className="mb-8 md:mb-[20px] text-center lg:text-left">

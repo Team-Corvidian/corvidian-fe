@@ -40,14 +40,14 @@ const Solusi = () => {
 
   return (
     <section className="w-full relative">
-      <div className="container relative py-8 md:py-12 lg:py-16 z-10 mx-auto">
+      <div className="relative py-8 md:py-12 lg:py-16 z-10 mx-auto px-4 sm:px-6 lg:px-12">
         <div className="space-y-4 lg:space-y-6 w-full max-w-[1000px] mx-auto">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-corvidian-1 leading-tight max-lg:text-center">
             Solusi
           <span className="text-[#2A77BD] mx-1">Corvidian.</span>
           </h1>
           <div className="w-full lg:w-3/4">
-            <p className="text-xs md:text-sm lg:text-base text-gray-700 max-lg:text-center">
+            <p className="text-xs md:text-sm lg:text-[14px] text-corvidian-1 max-lg:text-center">
               Kami rancang untuk menjawab tantangan dan mengubahnya menjadi
               peluang
             </p>

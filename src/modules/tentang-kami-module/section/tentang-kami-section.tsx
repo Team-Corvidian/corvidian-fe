@@ -12,17 +12,19 @@ import HeroSectionTentangKami from "../components/hero-section-tentang-kami";
 const TentangKamiSection = async () => {
   const articles = await fetchWawasanPreviews();
   return (
-    <section className="w-screen max-w-[1550px] flex-col min-h-screen over">
-      <HeroSectionTentangKami />
-      <ImageSection />
-      <MengapaRekamJejak />
-      <Solusi />
-      <TimKami />
-      <CaraKamiBekerja />
-      <ArtikelKami articles={articles} />
-      <ConsultationSection />
-      <ConsultationSchedule />
-    </section>
+    <div className="w-full flex justify-center lg:px-0">
+      <div className="w-full max-w-[1440px] min-h-screen">
+        <HeroSectionTentangKami />
+        <ImageSection />
+        <MengapaRekamJejak />
+        <Solusi />
+        <TimKami />
+        <CaraKamiBekerja />
+        <ArtikelKami articles={articles} />
+        <ConsultationSection />
+        <ConsultationSchedule />
+      </div>
+    </div>
   );
 };
 
