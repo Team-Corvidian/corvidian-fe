@@ -8,16 +8,10 @@ import { Menu } from "lucide-react";
 import ProdukAplikasiSiapMobile from "./dropdowns/produk-dropdown/produk-aplikasi-siap-mobile";
 import ProdukSolusiLayananMobile from "./dropdowns/produk-dropdown/produk-solusi-layanan.-mobile";
 import { WawasanDropdown } from "./dropdowns/wawasan-dropdown/wawasan-dropdown";
+import { ArticlePreview } from "@/lib/api/wawasan-api";
 
 interface NavbarMobileProps {
-  articles?: Array<{
-    id: string;
-    slug: string;
-    title: string;
-    excerpt: string;
-    cover_image: string;
-    published_at: string;
-  }>;
+  articles?: ArticlePreview[];
 }
 
 export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
@@ -34,11 +28,9 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
   };
 
   const handleMenuToggle = () => {
-    // Jika ada section yang expanded, tutup section tersebut dulu
     if (expandedSection !== null) {
       setExpandedSection(null);
     } else {
-      // Jika tidak ada section yang expanded, toggle navbar
       setIsOpen(!isOpen);
     }
   };
@@ -83,7 +75,6 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
               className="overflow-hidden bg-white max-h-[60vh] overflow-y-auto"
             >
               <div className="flex flex-col gap-4 px-6 pb-6">
-                {/* Produk & Layanan Dropdown */}
                 {expandedSection !== "wawasan" && (
                 <div className="border-b border-gray-200 pb-3">
                   {expandedSection === null && (
@@ -105,12 +96,10 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
                         className="overflow-hidden"
                       >
                         <div className="mt-4 space-y-4">
-                          {/* Solusi Berdasarkan Layanan */}
                           <div>
                             <ProdukSolusiLayananMobile onLinkClick={handleClose} />
                           </div>
 
-                          {/* Aplikasi Siap Pakai */}
                           <div>
                             <h3 className="text-xs font-semibold text-[#02C2B3] mb-3">
                               Aplikasi Siap Pakai
@@ -124,7 +113,6 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
                 </div>
                 )}
 
-                {/* Wawasan Dropdown */}
                 {expandedSection !== "produk" && (
                 <div className="border-b border-gray-200 pb-3">
                   {expandedSection === null && (
@@ -157,7 +145,6 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
                 </div>
                 )}
 
-                {/* Tentang Kami - Hidden when Produk or Wawasan expanded */}
                 {expandedSection !== "produk" && expandedSection !== "wawasan" && (
                   <motion.div
                     initial={{ x: -20, opacity: 0 }}
@@ -180,7 +167,6 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
           )}
         </AnimatePresence>
         
-        {/* Scroll Down Indicator */}
         {((expandedSection === "produk" || expandedSection === "wawasan") && isOpen) && (
           <div className="flex flex-col items-center mt-6 mb-2">
             <p className="text-xs text-gray-500 mb-2">Scroll Down for other option</p>
