@@ -3,7 +3,6 @@ import ConsultationSchedule from "@/modules/homepage-module/section/schedule-con
 import ConsultationSection from "@/modules/homepage-module/section/consultation-section";
 import OurPromotionSection from "@/modules/homepage-module/section/our-promotion-section";
 import HeroSectionWeb from "@/modules/web-service-module/section/hero-section-web";
-import { Footer } from "@/components/Footer/footer";
 
 
 export default function WebDesignDevelopmentPage() {
@@ -14,7 +13,6 @@ export default function WebDesignDevelopmentPage() {
         <ConsultationSection />
         <ConsultationSchedule />
         <OurPromotionSection />
-        <Footer />
       </div>
     </div>
   )

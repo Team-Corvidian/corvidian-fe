@@ -78,20 +78,17 @@ const HeroSectionWeb = () => {
         
         {/* Why Corvidian Section - Desktop */}
         <div className="hidden lg:flex relative w-full h-full z-10 flex-row justify-between overflow-hidden">
-          <div className="relative ml-[80px] lg:mt-[80px] mt-[40px] w-1/2">
+          <div className="relative ml-[80px] lg:mt-[60px] mt-[40px] w-1/2">
             <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
               Mengapa menggunakan jasa Web Design & Development
             </p>
-            <p className="text-sm lg:text-l text-corvidian-1 leading-relaxed max-w-2xl">
-              Gratis konsultasi seputar IT Infrastruktur untuk perusahaan Anda!
-            </p>
-            <div className="relative w-full h-full z-10 flex flex-row">
+            <div className="relative w-full h-fit z-10 flex flex-row">
               <div className="relative mt-[40px] w-1/3">
                 <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
-                  80++
+                  200++
                 </p>
                 <p className="text-sm lg:text-l text-corvidian-1 leading-relaxed max-w-2xl">
-                  Klien
+                  Pengguna
                 </p>
               </div>
               <div className="relative mt-[40px] w-1/3">
@@ -103,14 +100,19 @@ const HeroSectionWeb = () => {
                 </p>
               </div>
             </div>
+            <p className="text-sm font-semibold lg:text-l mt-[40px]  text-corvidian-1 leading-relaxed max-w-2xl">
+              Gratis konsultasi seputar Web Design & Development untuk perusahaan Anda!
+            </p>
           </div>
-          <Image
-            src="/web-service/Web-service page.png"
-            alt="Web Service Image"
-            width={589}
-            height={445}
-            className="object-contain"
-          />
+          <div className="relative bottom-0 right-0">
+            <Image
+              src="/web-service/Web-service page.png"
+              alt="Web Service Image"
+              width={700}
+              height={445}
+              className="object-contain"
+              />
+          </div>
         </div>
 
         {/* Why Corvidian Section - Mobile */}
@@ -121,27 +123,31 @@ const HeroSectionWeb = () => {
               <p className="text-[18px] text-corvidian-1 leading-tight font-extrabold mb-2">
                 Mengapa menggunakan jasa Web Design & Development
               </p>
-              <p className="text-[12px] text-corvidian-1 leading-relaxed">
-                Gratis konsultasi seputar IT Infrastruktur untuk perusahaan Anda!
-              </p>
             </div>
 
             {/* Stats */}
             <div className="flex gap-8 justify-between ps-6 mt-4">
-              <div className=''>
-                <p className="text-[24px] text-corvidian-1 font-extrabold">
-                  80++
-                </p>
-                <p className="text-[12px] text-corvidian-1">
-                  Klien
-                </p>
-              </div>
-              <div className=''>
-                <p className="text-[24px] text-corvidian-1 font-extrabold">
-                  4.9/5
-                </p>
-                <p className="text-[12px] text-corvidian-1">
-                  Rating
+              <div className="">
+                <div className="flex gap-8 justify-between w-0.5">
+                  <div className=''>
+                    <p className="text-[24px] text-corvidian-1 font-extrabold">
+                      80++
+                    </p>
+                    <p className="text-[12px] text-corvidian-1">
+                      Klien
+                    </p>
+                  </div>
+                  <div className=''>
+                    <p className="text-[24px] text-corvidian-1 font-extrabold">
+                      4.9/5
+                    </p>
+                    <p className="text-[12px] text-corvidian-1">
+                      Rating
+                    </p>
+                  </div>
+                </div>
+                <p className="text-[10px] mt-[20px] mb-[10px] text-corvidian-1 leading-relaxed">
+                Gratis konsultasi seputar Web Design & Development untuk perusahaan Anda!
                 </p>
               </div>
               {/* Web Service Image */}
@@ -149,12 +155,14 @@ const HeroSectionWeb = () => {
                 <Image
                   src="/web-service/Web-service page.png"
                   alt="Web Service Image"
-                  width={150}
+                  width={600}
                   height={113}
                   className="object-contain"
                 />
               </div>
             </div>
+
+              
 
           </div>
         </div>

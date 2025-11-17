@@ -82,16 +82,13 @@ const HeroSectionIt = () => {
             <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
               Mengapa menggunakan jasa IT Infrastructure Corvidian?
             </p>
-            <p className="text-sm lg:text-l text-corvidian-1 leading-relaxed max-w-2xl">
-              Gratis konsultasi seputar IT Infrastructure untuk perusahaan Anda!
-            </p>
-            <div className="relative w-full h-full z-10 flex flex-row">
+            <div className="relative w-full h-fit z-10 flex flex-row">
               <div className="relative mt-[40px] w-1/3">
                 <p className="text-sm lg:text-[33px] text-corvidian-1 leading-relaxed max-w-2xl font-extrabold">
-                  80++
+                  200++
                 </p>
                 <p className="text-sm lg:text-l text-corvidian-1 leading-relaxed max-w-2xl">
-                  Klien
+                  Pengguna
                 </p>
               </div>
               <div className="relative mt-[40px] w-1/3">
@@ -103,6 +100,9 @@ const HeroSectionIt = () => {
                 </p>
               </div>
             </div>
+            <p className="text-sm font-semibold lg:text-l mt-[40px] text-corvidian-1 leading-relaxed max-w-2xl">
+              Gratis konsultasi seputar IT Infrastructure untuk perusahaan Anda!
+            </p>
           </div>
           <Image
             src="/heroItInfra/Cable.png"
@@ -114,46 +114,50 @@ const HeroSectionIt = () => {
         </div>
 
         {/* Why Corvidian Section - Mobile */}
-        <div className="block lg:hidden relative w-full z-10  mt-8 ">
+        <div className="block lg:hidden relative w-full z-10 mt-8">
           <div className="flex flex-col gap-4">
             {/* Title & Description */}
             <div className='px-6'>
               <p className="text-[18px] text-corvidian-1 leading-tight font-extrabold mb-2">
                 Mengapa menggunakan jasa IT Infrastructure Corvidian?
               </p>
-              <p className="text-[12px] text-corvidian-1 leading-relaxed">
-                Gratis konsultasi seputar IT Infrastructure untuk perusahaan Anda!
-              </p>
             </div>
 
-            {/* Stats */}
+            {/* Stats & Image Container */}
             <div className="flex gap-8 justify-between ps-6 mt-4">
-              <div className=''>
-                <p className="text-[24px] text-corvidian-1 font-extrabold">
-                  80++
-                </p>
-                <p className="text-[12px] text-corvidian-1">
-                  Klien
-                </p>
-              </div>
-              <div className=''>
-                <p className="text-[24px] text-corvidian-1 font-extrabold">
-                  4.9/5
-                </p>
-                <p className="text-[12px] text-corvidian-1">
-                  Rating
-                </p>
-              </div>
-            {/* Cable Image */}
-                <div className="flex justify-center top-[-10px] right-0">
-                  <Image
-                    src="/heroItInfra/Cable.png"
-                    alt="Cable Image"
-                    width={150}
-                    height={113}
-                    className="object-contain"
-                  />
+              <div className="">
+                <div className="flex gap-8 justify-between w-0.5">
+                  <div className=''>
+                    <p className="text-[24px] text-corvidian-1 font-extrabold">
+                      80++
+                    </p>
+                    <p className="text-[12px] text-corvidian-1">
+                      Klien
+                    </p>
+                  </div>
+                  <div className=''>
+                    <p className="text-[24px] text-corvidian-1 font-extrabold">
+                      4.9/5
+                    </p>
+                    <p className="text-[12px] text-corvidian-1">
+                      Rating
+                    </p>
+                  </div>
                 </div>
+                <p className="text-[10px] mt-[20px] mb-[10px] text-corvidian-1 leading-relaxed">
+                  Gratis konsultasi seputar IT Infrastructure untuk perusahaan Anda!
+                </p>
+              </div>
+              {/* Cable Image */}
+              <div className="flex justify-center bottom-0 right-0">
+                <Image
+                  src="/heroItInfra/Cable.png"
+                  alt="Cable Image"
+                  width={600}
+                  height={113}
+                  className="object-contain"
+                />
+              </div>
             </div>
 
           </div>
