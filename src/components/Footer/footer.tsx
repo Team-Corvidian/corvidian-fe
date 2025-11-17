@@ -41,7 +41,7 @@ export const Footer = () => {
   const contentZ = isLarge || isMedium ? 35 : 20;
 
   return (
-    <footer className="relative overflow-hidden w-full max-w-full max-w-[1550px]">
+    <footer className="relative overflow-hidden w-full  max-w-[1550px]">
       {/* Background vectors for large screens with proper z-index */}
       <div className="md:block hidden">
         {/* Blue background - always top layer on medium and large screens */}

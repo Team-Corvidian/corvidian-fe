@@ -120,26 +120,36 @@ export const FooterMobile = () => {
         <div className="space-y-4 text-sm text-[#F4F4F4]">
           <p>Ingin bertanya lebih rinci? hubungi kami melalui kanal berikut:</p>
           <div className="space-y-3">
-            <div className="flex items-center gap-2">
+            <Link
+              href={`mailto:${CONTACT.email}`}
+              className="flex items-center gap-2 hover:text-[#15C0C4] transition-colors cursor-pointer"
+            >
               <Image
                 src="/footer/office.png"
                 alt="Email Icon"
                 width={18}
                 height={18}
               />
-              <span className="font-semibold text-white">{CONTACT.email}</span>
-            </div>
-            <div className="flex items-center gap-2">
+              <span className="font-semibold text-white hover:text-[#15C0C4] transition-colors">
+                {CONTACT.email}
+              </span>
+            </Link>
+            <Link
+              href={`https://wa.me/${CONTACT.phoneMobile.replace(/[^0-9]/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-[#15C0C4] transition-colors cursor-pointer"
+            >
               <Image
                 src="/footer/telephone.png"
                 alt="Telephone Icon"
                 width={18}
                 height={18}
               />
-              <span className="font-semibold text-white">
+              <span className="font-semibold text-white hover:text-[#15C0C4] transition-colors">
                 {CONTACT.phoneMobile}
               </span>
-            </div>
+            </Link>
           </div>
           <div>
             <p>
@@ -148,7 +158,13 @@ export const FooterMobile = () => {
             </p>
             <div className="mt-4 flex items-center gap-4">
               {SOCIAL_ICONS.map((s) => (
-                <Link href={s.href} aria-label={s.label} key={s.label}>
+                <Link
+                  href={s.href}
+                  aria-label={s.label}
+                  key={s.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black transition-transform hover:scale-105">
                     <Image src={s.src} alt={s.alt} width={32} height={32} />
                   </span>

@@ -120,28 +120,36 @@ export const FooterDesktop = () => {
                 Ingin bertanya lebih rinci? hubungi kami melalui kanal berikut:
               </p>
               <div className="space-y-2">
-                <div className="flex items-center gap-2">
+                <Link 
+                  href={`mailto:${CONTACT.email}`}
+                  className="flex items-center gap-2 hover:text-[#15C0C4] transition-colors cursor-pointer"
+                >
                   <Image
                     src="/footer/office.png"
                     alt="Email Icon"
                     width={16}
                     height={16}
                   />
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-white hover:text-[#15C0C4] transition-colors">
                     {CONTACT.email}
                   </span>
-                </div>
-                <div className="flex items-center gap-2">
+                </Link>
+                <Link 
+                  href={`https://wa.me/${CONTACT.phoneDesktop.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-[#15C0C4] transition-colors cursor-pointer"
+                >
                   <Image
                     src="/footer/telephone.png"
                     alt="Telephone Icon"
                     width={16}
                     height={16}
                   />
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-white hover:text-[#15C0C4] transition-colors">
                     {CONTACT.phoneDesktop}
                   </span>
-                </div>
+                </Link>
               </div>
               <div className="space-y-2">
                 <p className="leading-5">
@@ -154,6 +162,8 @@ export const FooterDesktop = () => {
                       href={social.href}
                       aria-label={social.label}
                       key={social.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black transition-transform hover:scale-105">
                         <Image
