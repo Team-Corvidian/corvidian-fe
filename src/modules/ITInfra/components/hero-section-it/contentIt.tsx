@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Button } from "@/components/ui/button";
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,6 +16,128 @@ const ContentIt = () => {
   const [securityFAQExpanded, setSecurityFAQExpanded] = useState(false)
   const [operationsDetailsExpanded, setOperationsDetailsExpanded] = useState(false)
   const [operationsFAQExpanded, setOperationsFAQExpanded] = useState(false)
+
+  // Scroll to element function
+  const scrollToElement = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }, []);
+
+  // Handle hash navigation - wrapped in useCallback to prevent recreation
+  const handleHashNavigation = useCallback((hash: string) => {
+    if (!hash) return;
+
+    console.log('Navigating to hash:', hash); // Debug log
+
+    // Mapping hash to section and expand states
+    const sectionMapping: Record<string, () => void> = {
+      'infrastructure-setup': () => {
+        console.log('Expanding infrastructure-setup'); // Debug
+        setInfrastructureExpanded(true);
+        setTimeout(() => scrollToElement('infrastructure-setup'), 500);
+      },
+      'infrastructure-details': () => {
+        console.log('Expanding infrastructure-details'); // Debug
+        setInfrastructureExpanded(true);
+        setTimeout(() => {
+          setInfrastructureDetailsExpanded(true);
+          setTimeout(() => scrollToElement('infrastructure-details'), 200);
+        }, 300);
+      },
+      'infrastructure-faq': () => {
+        console.log('Expanding infrastructure-faq'); // Debug
+        setInfrastructureExpanded(true);
+        setTimeout(() => {
+          setInfrastructureFAQExpanded(true);
+          setTimeout(() => scrollToElement('infrastructure-faq'), 200);
+        }, 300);
+      },
+      'security-data': () => {
+        console.log('Expanding security-data'); // Debug
+        setSecurityExpanded(true);
+        setTimeout(() => scrollToElement('security-data'), 500);
+      },
+      'security-details': () => {
+        console.log('Expanding security-details'); // Debug
+        setSecurityExpanded(true);
+        setTimeout(() => {
+          setSecurityDetailsExpanded(true);
+          setTimeout(() => scrollToElement('security-details'), 200);
+        }, 300);
+      },
+      'security-faq': () => {
+        console.log('Expanding security-faq'); // Debug
+        setSecurityExpanded(true);
+        setTimeout(() => {
+          setSecurityFAQExpanded(true);
+          setTimeout(() => scrollToElement('security-faq'), 200);
+        }, 300);
+      },
+      'operations-support': () => {
+        console.log('Expanding operations-support'); // Debug
+        setOperationsExpanded(true);
+        setTimeout(() => scrollToElement('operations-support'), 500);
+      },
+      'operations-details': () => {
+        console.log('Expanding operations-details'); // Debug
+        setOperationsExpanded(true);
+        setTimeout(() => {
+          setOperationsDetailsExpanded(true);
+          setTimeout(() => scrollToElement('operations-details'), 200);
+        }, 300);
+      },
+      'operations-faq': () => {
+        console.log('Expanding operations-faq'); // Debug
+        setOperationsExpanded(true);
+        setTimeout(() => {
+          setOperationsFAQExpanded(true);
+          setTimeout(() => scrollToElement('operations-faq'), 200);
+        }, 300);
+      },
+    };
+
+    // Execute the corresponding action
+    const action = sectionMapping[hash];
+    if (action) {
+      action();
+    } else {
+      console.log('No mapping found for hash:', hash); // Debug
+    }
+  }, [scrollToElement]);
+
+  // Handle initial load with hash
+  useEffect(() => {
+    // Wait for component to fully mount
+    const timer = setTimeout(() => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        console.log('Initial load hash:', hash); // Debug
+        handleHashNavigation(hash);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [handleHashNavigation]);
+
+  // Handle hash changes (when clicking links)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      console.log('Hash changed to:', hash); // Debug
+      handleHashNavigation(hash);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [handleHashNavigation]);
 
   return (
     <div className='mb-[20px]'>
@@ -34,9 +156,9 @@ const ContentIt = () => {
         </div>
 
         {/* Section 1: Infrastructure Setup & Management */}
-        <div className="lg:mt-[80px] mt-[40px]">
+        <div id="infrastructure-setup" className="lg:mt-[80px] mt-[40px]">
           <div 
-            className="bg-white shadow-xl w-full h-[60px] flex items-center cursor-pointer" 
+            className="bg-white shadow-xl w-full h-[60px] flex items-center cursor-pointer"
             onClick={() => setInfrastructureExpanded(!infrastructureExpanded)}
           >
             <div className="ml-[20px] lg:ml-[50px] w-[4px] h-[60%] bg-[#1578CB] self-center"/>
@@ -69,6 +191,7 @@ const ContentIt = () => {
             <div className="mt-2 flex flex-col">
               {/* Details section */}
               <div 
+                id="infrastructure-details"
                 className="bg-[#C5CED5] shadow-xl w-[calc(100%-40px)] lg:w-[1110px] ml-[40px] lg:ml-[105px] h-[60px] flex items-center cursor-pointer"
                 onClick={() => setInfrastructureDetailsExpanded(!infrastructureDetailsExpanded)}
               >
@@ -120,6 +243,7 @@ const ContentIt = () => {
               
               {/* FAQ section */}
               <div 
+                id="infrastructure-faq"
                 className="bg-[#C5CED5] shadow-xl w-[calc(100%-40px)] lg:w-[1110px] ml-[40px] lg:ml-[105px] h-[60px] flex items-center mt-2 cursor-pointer"
                 onClick={() => setInfrastructureFAQExpanded(!infrastructureFAQExpanded)}
               >
@@ -170,7 +294,7 @@ const ContentIt = () => {
         </div>
 
         {/* Section 2: Security & Data Protection */}
-        <div className="mt-[20px]">
+        <div id="security-data" className="mt-[20px]">
           <div 
             className="bg-white shadow-xl w-full h-[60px] flex items-center cursor-pointer"
             onClick={() => setSecurityExpanded(!securityExpanded)}
@@ -205,6 +329,7 @@ const ContentIt = () => {
             <div className="mt-2 flex flex-col">
               {/* Details section */}
               <div 
+                id="security-details"
                 className="bg-[#C5CED5] shadow-xl w-[calc(100%-40px)] lg:w-[1110px] ml-[40px] lg:ml-[105px] h-[60px] flex items-center cursor-pointer"
                 onClick={() => setSecurityDetailsExpanded(!securityDetailsExpanded)}
               >
@@ -256,6 +381,7 @@ const ContentIt = () => {
               
               {/* FAQ section */}
               <div 
+                id="security-faq"
                 className="bg-[#C5CED5] shadow-xl w-[calc(100%-40px)] lg:w-[1110px] ml-[40px] lg:ml-[105px] h-[60px] flex items-center mt-2 cursor-pointer"
                 onClick={() => setSecurityFAQExpanded(!securityFAQExpanded)}
               >
@@ -306,7 +432,7 @@ const ContentIt = () => {
         </div>
 
         {/* Section 3: Operations & Support */}
-        <div className="mt-[20px] lg:mb-[80px] mb-[40px]">
+        <div id="operations-support" className="mt-[20px] lg:mb-[80px] mb-[40px]">
           <div 
             className="bg-white shadow-xl w-full h-[60px] flex items-center cursor-pointer"
             onClick={() => setOperationsExpanded(!operationsExpanded)}
@@ -341,6 +467,7 @@ const ContentIt = () => {
             <div className="mt-2 flex flex-col">
               {/* Details section */}
               <div 
+                id="operations-details"
                 className="bg-[#C5CED5] shadow-xl w-[calc(100%-40px)] lg:w-[1110px] ml-[40px] lg:ml-[105px] h-[60px] flex items-center cursor-pointer"
                 onClick={() => setOperationsDetailsExpanded(!operationsDetailsExpanded)}
               >
@@ -392,6 +519,7 @@ const ContentIt = () => {
               
               {/* FAQ section */}
               <div 
+                id="operations-faq"
                 className="bg-[#C5CED5] shadow-xl w-[calc(100%-40px)] lg:w-[1110px] ml-[40px] lg:ml-[105px] h-[60px] flex items-center mt-2 cursor-pointer"
                 onClick={() => setOperationsFAQExpanded(!operationsFAQExpanded)}
               >
