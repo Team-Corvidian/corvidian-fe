@@ -178,7 +178,7 @@ export const Footer = () => {
                       <div className="flex-1">
                         <ul className="space-y-1">
                           <li>
-                            <Link href="#" className="text-[12px]">
+                            <Link href="/#testimoni" className="text-[12px]">
                               Testimoni Klien
                             </Link>
                           </li>
@@ -188,7 +188,7 @@ export const Footer = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="#" className="text-[12px]">
+                            <Link href="/#clients" className="text-[12px]">
                               Klien Kami
                             </Link>
                           </li>

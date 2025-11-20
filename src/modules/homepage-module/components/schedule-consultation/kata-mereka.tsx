@@ -12,7 +12,7 @@ const KataMereka = () => {
 
   const testimonials = [
     {
-      text: "Sebelum bekerja sama dengan Corvidian, aktivitas di MUC masih banyak dilakukan secara manual. Setelah Corvidian hadir, semuanya berubah. Mereka memahami kebutuhan kami, merancang solusi yang tepat, dan memastikan setiap detail berjalan lancar. Kini koordinasi tim lebih efisien, pekerjaan selesai lebih cepat, dan kinerja perusahaan meningkat signifikan. Corvidian bukan sekadar penyedia teknologi, tapi mitra strategis yang mendorong kami maju.",
+      text: "Sebelum bekerja sama dengan Corvidian, aktivitas di MUC masih banyak dilakukan secara manual. Setelah Corvidian hadir, semuanya berubah. Mereka memahami kebutuhan kami, merancang solusi yang tepat, dan memastikan setiap detail berjalan lancar. Kini koordinasi tim lebih efisien, pekerjaan selesai lebih cepat, dan kinerja perusahaan meningkat signifikan. Corvidian bukan sekadar penyedia teknologi, tapi mitra strategis yang mendorong kami maju..",
       author: "~Sugianto",
       position: "Managing Partner MUC Consulting",
     },

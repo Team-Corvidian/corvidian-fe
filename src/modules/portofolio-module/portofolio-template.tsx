@@ -16,6 +16,8 @@ export interface PortofolioImage {
   alt: string
   width: number
   height: number
+  modalWidth?: number
+  modalHeight?: number
 }
 
 // Interface untuk Props Component
@@ -65,37 +67,45 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
   portfolioImages,
 }) => {
   // Modal state: src gambar yang sedang dibuka
-  const [modalSrc, setModalSrc] = useState<string | null>(null)
-  const [modalAlt, setModalAlt] = useState<string>('')
+  const [modalImage, setModalImage] = useState<PortofolioImage | null>(null)
+  const [zoomLevel, setZoomLevel] = useState(1)
 
-  const openModal = (src: string, alt = '') => {
-    setModalSrc(src)
-    setModalAlt(alt)
+  const resetZoom = () => setZoomLevel(1)
+  const adjustZoom = (delta: number) => {
+    setZoomLevel((prev) => {
+      const next = Math.min(3, Math.max(1, parseFloat((prev + delta).toFixed(2))))
+      return next
+    })
+  }
+
+  const openModal = (image: PortofolioImage) => {
+    setModalImage(image)
+    resetZoom()
   }
   const closeModal = useCallback(() => {
-    setModalSrc(null)
-    setModalAlt('')
+    setModalImage(null)
+    resetZoom()
   }, [])
 
   // disable body scroll saat modal terbuka
   useEffect(() => {
-    if (modalSrc) {
+    if (modalImage) {
       const original = document.body.style.overflow
       document.body.style.overflow = 'hidden'
       return () => {
         document.body.style.overflow = original
       }
     }
-  }, [modalSrc])
+  }, [modalImage])
 
   // close modal on Esc
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal()
     }
-    if (modalSrc) document.addEventListener('keydown', onKey)
+    if (modalImage) document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
-  }, [modalSrc, closeModal])
+  }, [modalImage, closeModal])
 
   return (
     <section className="w-full relative">
@@ -163,7 +173,7 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
           {portfolioImages.map((image, index) => (
             <button
               key={`portfolio-${index}`}
-              onClick={() => openModal(image.src, image.alt)}
+              onClick={() => openModal(image)}
               className="rounded overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-corvidian-3"
               aria-label={`Buka gambar portofolio ${image.alt || index}`}
               type="button"
@@ -171,9 +181,11 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={image.width}
-                height={image.height}
-                style={{zIndex: 0}}
+                width={image.modalWidth ?? image.width}
+                height={image.modalHeight ?? image.height}
+                sizes={`(max-width: 768px) 90vw, ${image.width}px`}
+                quality={100}
+                style={{ zIndex: 0, width: image.width, height: image.height }}
                 className="object-contain"
               />
             </button>
@@ -182,24 +194,51 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
       </div>
 
       {/* Modal */}
-      {modalSrc && (
+      {modalImage && (
         <div
           role="dialog"
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md transition-opacity cursor-pointer"
-          onClick={() => closeModal()} // klik sekali pada overlay (atau gambar) akan menutup modal
+          onClick={() => closeModal()} // klik sekali pada overlay akan menutup modal
         >
-          <div className="max-w-[90vw] max-h-[90vh] p-4">
-            <div className="w-full h-full rounded shadow-lg bg-transparent flex items-center justify-center">
-              <Image
-                src={modalSrc}
-                alt={modalAlt || 'Gambar portofolio'}
-                width={1200}
-                height={800}
-                style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '80vh' }}
-                className="rounded"
-                priority
-              />
+          <div
+            className="max-w-[90vw] max-h-[90vh] p-4"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="w-full h-full rounded shadow-lg bg-transparent flex items-center justify-center relative overflow-hidden">
+              <div className="overflow-auto max-h-[80vh] max-w-[90vw] flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={modalImage.src}
+                  alt={modalImage.alt || 'Gambar portofolio'}
+                  width={modalImage.modalWidth ?? modalImage.width}
+                  height={modalImage.modalHeight ?? modalImage.height}
+                  className="rounded object-contain"
+                  style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center' }}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="absolute bottom-4 right-4 flex gap-2">
+                <button
+                  type="button"
+                  aria-label="Perkecil gambar"
+                  onClick={() => adjustZoom(-0.25)}
+                  disabled={zoomLevel <= 1}
+                  className="px-3 py-2 rounded bg-white/80 text-black text-sm font-semibold shadow disabled:opacity-40"
+                >
+                  -
+                </button>
+                <button
+                  type="button"
+                  aria-label="Perbesar gambar"
+                  onClick={() => adjustZoom(0.25)}
+                  disabled={zoomLevel >= 3}
+                  className="px-3 py-2 rounded bg-white/80 text-black text-sm font-semibold shadow disabled:opacity-40"
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
           {/* close button removed */}
