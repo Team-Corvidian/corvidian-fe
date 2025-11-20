@@ -107,7 +107,7 @@ const ProdukSolusiLayanan = () => {
     
                       {/* Web Design & Development Services */}
                       <div className="mt-6 space-y-4 flex flex-col gap-[10px]">
-                        <div className="h-[40px] w-[130px] rounded-4xl flex items-center justify-center" style={{background:"linear-gradient(to right, #02C2B3, #1D1F26, #1D1F26, #1578CB)"}}>
+                        <div className="h-[40px] w-fit px-[7px] rounded-4xl flex items-center justify-center" style={{background:"linear-gradient(to right, #02C2B3, #1D1F26, #1D1F26, #1578CB)"}}>
                           <Button variant="outline" size="sm" className="text-[12px] text-black font-bold w-fit rounded-2xl">
                             <Link href='/web-design-development' className='pointer'>Web Design</Link>
                           </Button>
