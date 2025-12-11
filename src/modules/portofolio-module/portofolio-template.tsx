@@ -104,19 +104,21 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
     <section className="w-full relative">
       <div className="flex flex-row mb-[100px]">
         <div className="flex flex-col w-1/2">
-          <div 
-            className="relative" 
+          <div
+            className="relative"
             style={{
-              backgroundImage: 'url(/tentangkami/shape.png)', 
-              backgroundSize: 'cover', 
-              height: '550.84px'
+              backgroundImage: "url(/tentangkami/shape.png)",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "left top",
+              height: "550.84px",
             }}
           >
             <div className="relative top-[70px] flex flex-col ms-[100px]">
-              <p className="text-xl max-sm:max-w-[330px] md:text-3xl font-extrabold text-white leading-tight max-[350px]:text-2xl max-[350px]:!max-w-[250px]">
+              <p className="text-xl max-sm:max-w-[330px] md:text-3xl font-extrabold text-white leading-tight max-[350px]:text-2xl max-[350px]:!max-w-[250px] max-xl:-translate-x-12">
                 {titleLine1}
               </p>
-              <p className="text-xl max-sm:max-w-[330px] md:text-3xl font-extrabold text-corvidian-3 leading-tight max-[350px]:text-2xl max-[350px]:!max-w-[250px]">
+              <p className="text-xl max-sm:max-w-[330px] md:text-3xl font-extrabold text-corvidian-3 leading-tight max-[350px]:text-2xl max-[350px]:!max-w-[250px] max-xl:-translate-x-12">
                 {titleLine2}
               </p>
             </div>
@@ -127,8 +129,8 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
               height={481.84}
               quality={100}
               priority
-              style={{zIndex: 0}}
-              className="absolute object-contain ms-[100px] top-[120px]"
+              style={{ zIndex: 0 }}
+              className="absolute object-contain ms-[100px] top-[120px] max-xl:ms-[0px]"
             />
           </div>
         </div>
@@ -147,14 +149,14 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
                   width={tech.width}
                   height={tech.height}
                   quality={100}
-                  style={{zIndex: 0}}
+                  style={{ zIndex: 0 }}
                   className="object-contain"
                 />
               ))}
             </div>
           </div>
 
-          <p className='text-[14px] pt-4 text-justify text-black'>
+          <p className="text-[14px] pt-4 text-justify text-black">
             {description}
           </p>
         </div>
@@ -201,15 +203,15 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
               <div className="overflow-hidden max-h-[80vh] max-w-[90vw] flex items-center justify-center">
                 <Image
                   src={modalImage.src}
-                  alt={modalImage.alt || 'Gambar portofolio'}
+                  alt={modalImage.alt || "Gambar portofolio"}
                   width={modalImage.modalWidth ?? modalImage.width}
                   height={modalImage.modalHeight ?? modalImage.height}
                   quality={100}
                   priority
                   className="rounded object-contain max-h-[80vh] max-w-[90vw]"
-                  style={{ 
-                    transform: `scale(${zoomLevel})`, 
-                    transformOrigin: 'center center' 
+                  style={{
+                    transform: `scale(${zoomLevel})`,
+                    transformOrigin: "center center",
                   }}
                 />
               </div>
@@ -238,7 +240,7 @@ const PortofolioTemplate: React.FC<PortofolioTemplateProps> = ({
         </div>
       )}
     </section>
-  )
+  );
 }
 
 export default PortofolioTemplate
