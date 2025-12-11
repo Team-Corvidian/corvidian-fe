@@ -57,8 +57,9 @@ export const ImageSection = () => {
           width={200}
           height={90}
           priority
+          sizes="(max-width: 350px) 160px, (max-width: 400px) 190px, (max-width: 582px) 220px, (max-width: 650px) 250px, 300px"
           style={{ zIndex: 3 }}
-          className="absolute object-contain top-0 left-0 right-0 max-[400px]:max-w-[180px] max-[350px]:max-w-[10px] min-[582px]:w-[250px] min-[650px]:w-[300px]"
+          className="absolute object-contain top-0 left-0 right-0 w-[220px] max-[400px]:w-[190px] max-[350px]:w-[160px] min-[582px]:w-[250px] min-[650px]:w-[300px]"
         />
         <div
           className="absolute top-[20px] w-full"
