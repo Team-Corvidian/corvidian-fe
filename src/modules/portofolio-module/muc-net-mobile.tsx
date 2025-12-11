@@ -81,7 +81,7 @@ const MucNetMobile = () => {
               </div>
               <div className="flex-shrink-0">
                 <Image
-                  src='/portofolio/MySQL.png'
+                  src='/portofolio/MySql.png'
                   alt='MySQL Logo'
                   width={70 * 0.55}
                   height={36 * 0.55}
