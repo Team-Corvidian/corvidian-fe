@@ -96,7 +96,7 @@ export const NavbarDesktop = ({ articles }: Props) => {
           >
             <Image src="/navbar/whatsapp.png" alt="WA" width={21} height={21} />
             <Link
-              href="http://wa.me/62812219154780"
+              href="http://wa.me/6281221915478"
               className="text-corvidian-4 text-sm font-bold"
             >
               WhatsApp Kami
