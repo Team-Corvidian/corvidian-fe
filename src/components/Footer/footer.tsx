@@ -15,6 +15,12 @@ export const Footer = () => {
       toast.error("Masukkan email");
       return;
     }
+    // Validasi email menggunakan regex sederhana
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Masukkan email yang valid");
+      return;
+    }
     const result = await submitSubscription({ email, source: "footer" });
     if (!result.ok) {
       toast.error(result.error || "Gagal subscribe");
