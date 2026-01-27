@@ -212,6 +212,29 @@ export const NavbarMobile = ({ articles = [] }: NavbarMobileProps) => {
           />
         )}
       </AnimatePresence>
+
+      {/* Floating WhatsApp Button - Only on main page */}
+      {pathname === "/" && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.3, type: "spring", stiffness: 200 }}
+          className="fixed bottom-6 right-6 z-50"
+        >
+          <Link
+            href="http://wa.me/6281221915478"
+            className="block w-16 h-16 flex items-center justify-center"
+            aria-label="Hubungi via WhatsApp"
+          >
+            <Image
+              src="/navbar/whatapp-popup.png"
+              alt="WhatsApp"
+              width={65}
+              height={65}
+            />
+          </Link>
+        </motion.div>
+      )}
     </>
   );
 };
