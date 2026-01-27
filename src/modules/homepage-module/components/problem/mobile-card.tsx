@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const MobileCard = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col gap-6">
       <Link
@@ -86,12 +90,12 @@ export const MobileCard = () => {
               </p>
             </div>
 
-            <Link
-              href="/service"
-              className="text-white font-bold text-[10px] underline self-end"
+            <button
+              onClick={() => router.push("/service")}
+              className="text-white font-bold text-[10px] underline self-end cursor-pointer"
             >
               Pelajari lebih lanjut
-            </Link>
+            </button>
           </div>
         </Link>
       </div>
